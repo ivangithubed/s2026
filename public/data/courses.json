@@ -1,0 +1,668 @@
+{
+  "pageTitle": "*Frontend-курси* від Youtube-каналу Навчаємося Разом",
+  "intro": "Інформація про вміст, тривалість та можливі форми навчання.",
+  "basedOn": "Ці курси ґрунтуються на [MDN front-end development curriculum](https://developer.mozilla.org/en-US/curriculum/).",
+  "links": [
+    {
+      "text": "Докладно про курси",
+      "url": "https://learningtogetherua.github.io/courses/#fullcourse"
+    },
+    {
+      "text": "Запитати/Записатись ↗",
+      "url": "https://t.me/profrontendua"
+    }
+  ],
+  "forWhom": {
+    "title": "Для кого ці курси?",
+    "text": "Для тих, хто зацікавлений у створенні власного веб-сайту та бажає отримати всі необхідні знання та практичні навички для цього. Крім того, він стане в нагоді початківцям, які прагнуть увійти в IT-сферу та навчитися створювати веб-сайти та веб-застосунки. Курс також буде корисним для веб-дизайнерів, які хочуть глибше зрозуміти процеси верстання, а також для backend-розробників, які прагнуть розширити свої навички у сфері верстки для просування власної кар'єри.",
+    "note": "На курсах від каналу \"Навчаємося Разом\" у 2020-2025 роках навчались студенти віком від 12 до 60 років (запис на навчання для неповнолітніх студентів ініціюють дорослі особи).",
+    "image": "https://learningtogetherua.github.io/courses/assets/images/bg-students.webp"
+  },
+  "quote": {
+    "text": "Кожен, хто перестає вчитися, старіє, – не важливо, в 20 або 80 років, – а будь-який інший, хто продовжує вчитися, залишається молодим. Найважливіше в житті – це зберегти мозок молодим."
+  },
+  "courses": [
+    {
+      "id": "frontend-full",
+      "category": "група онлайн",
+      "title": "Frontend-розробка",
+      "duration": "320 годин",
+      "schedule": [{
+        "day": "ВТ",
+        "time": "20:00 - 22:00"
+      }, {
+        "day": "ЧТВ",
+        "time": "20:00 - 22:00"
+      }, {
+        "day": "НЕД",
+        "time": "17:00 - 21:00"
+      }],
+      "startDate": "~30.11.25",
+      "featured": true,
+      "summary": "Комплексний курс, що охоплює HTML, CSS, JavaScript, TypeScript, React 19 та Next.js 15. Все, що потрібно для старту кар'єри.",
+      "priceInfo": "від 2000грн/міс",
+      "learningFormatsAvailable": [
+        "Група онлайн",
+        "З менторством",
+        "Без менторства"
+      ],
+      "description": "Курс складається з трьох частин. Наведені нижче переліки тематичних блоків не є вичерпними. Крім наведених нижче технологій окрема увага приділяється налаштуваню та використанню інструментів розробника (VS Code, Chrome DevTools, Git/GitHub/GitHubPages, npm тощо)",
+      "modules": [
+        {
+          "title": "HTML/CSS",
+          "duration": "90 годин",
+          "topics": [
+            "Структура сторінок",
+            "HTML-елементи",
+            "Семантика",
+            "Текст, зображення та посилання",
+            "Форми та ix стилізація",
+            "Мультімедіа",
+            "CSS-селектори та специфічність",
+            "Шрифти",
+            "Box-model, Позиціонування",
+            "Flexbox та Grid Layout",
+            "Кольори та фонові зображення",
+            "Змінні та функції в CSS",
+            "Переходи та Анімація",
+            "@media, адаптивні зображення, бургер-меню",
+            "@layer, Popover API, Carousel API",
+            "Препроцесори (SCSS)",
+            "CSS-бібліотеки та фреймворки (MVP, Bootstrap, Tailwind)",
+            "Багато практики на уроках та не менш ніж 10 домашніх завдань/проектів з перевіркою та фідбеком",
+            "бонус: Доступ до 100+ високоякісних figma-макетів з frontendmentor.io"
+          ]
+        },
+        {
+          "title": "JavaScript/TypeScript",
+          "duration": "180 годин",
+          "topics": [
+            "Лексична структура, змінні",
+            "Типи даних та їх методи",
+            "Оператори",
+            "Умовні конструкції та цикли",
+            "Об'єкти, масиви та їх методи",
+            "Функції",
+            "Обробка помилок",
+            "Класи",
+            "Модулі",
+            "DOM, Events",
+            "Canvas",
+            "Асинхронний JavaScript",
+            "Валідація форм та RegExp",
+            "URL, History, Webstorage",
+            "Тестування коду (Jest)",
+            "Документація до проекту (jsDoc)",
+            "TypeScript - базові типи даних",
+            "TypeScript - Union Types, Type Aliases, Interfaces",
+            "TypeScript - Type Assertion та Literal Types",
+            "TypeScript - Generics, Conditional Types",
+            "TypeScript - Void, Unknown, Never",
+            "TypeScript - Типізація функцій",
+            "Багато практики на уроках та не менш ніж 30 домашніх завдань/проектів з перевіркою та фідбеком"
+          ]
+        },
+        {
+          "title": "React 19/Next.js 15",
+          "duration": "50 годин",
+          "topics": [
+            "Налаштування середовища розробки з Vite",
+            "JSX та TSX синтаксис",
+            "React Components, Props, State",
+            "React Hooks (useState, useEffect, useContext, useRef)",
+            "Нові хуки React 19 (useOptimistic, useFormStatus, useFormState)",
+            "Actions в React 19",
+            "Асинхронні компоненти в React 19",
+            "Suspense та lazy loading",
+            "Оптимізація рендерингу та Server Components",
+            "Next.js - розгортання проекту",
+            "Next.js App Router",
+            "Next.js Data Fetching",
+            "Next.js Rendering стратегії",
+            "Next.js Partial Prerendering",
+            "Next.js Caching та Revalidation",
+            "Next.js Styling (CSS Modules, Tailwind)",
+            "Next.js Оптимізація та аналітика",
+            "Next.js Authentication з NextAuth.js",
+            "Next.js Deploying (Vercel, Render)",
+            "Багато практики на уроках: Проект з Vite та React 19, Проект з Next.js 15 App Router, Великий проект з використанням Next.js 15, React 19, TypeScript, Tailwind CSS та Server Components"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "html-css",
+      "title": "HTML/CSS",
+      "category": "група онлайн",
+      "duration": "90 годин",
+      "schedule": [{
+        "day": "ВТ",
+        "time": "20:00 - 22:00"
+      }, {
+        "day": "ЧТВ",
+        "time": "20:00 - 22:00"
+      }, {
+        "day": "НЕД",
+        "time": "17:00 - 21:00"
+      }],
+      "startDate": "~30.11.25",
+      "featured": true,
+      "summary": "Ідеально для початківців, дизайнерів та backend-розробників, які хочуть опанувати верстку.",
+      "priceInfo": "від 999 грн",
+      "learningFormatsAvailable": ["З менторством", "Без менторства"],
+      "description": "Можливість вивчати тільки один з трьох блоків повного курсу \"Frontend-розробка\" без обов'язку продовжувати навчання з JavaScript. Для цього курсу доступні три форми навчання.",
+      "modules": [
+        {
+          "title": "HTML/CSS",
+          "duration": "90 годин",
+          "topics": [
+            "Структура сторінок",
+            "HTML-елементи",
+            "Семантика",
+            "Текст, зображення та посилання",
+            "Форми та ix стилізація",
+            "Мультімедіа",
+            "CSS-селектори та специфічність",
+            "Шрифти",
+            "Box-model, Позиціонування",
+            "Flexbox та Grid Layout",
+            "Кольори та фонові зображення",
+            "Змінні та функції в CSS",
+            "Переходи та Анімація",
+            "@media, адаптивні зображення, бургер-меню",
+            "@layer, Popover API, Carousel API",
+            "Препроцесори (SCSS)",
+            "CSS-бібліотеки та фреймворки (MVP, Bootstrap, Tailwind)",
+            "Багато практики на уроках та не менш ніж 10 домашніх завдань/проектів з перевіркою та фідбеком",
+            "бонус: Доступ до 100+ високоякісних figma-макетів з frontendmentor.io"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "js-react",
+      "title": "JavaScript/TypeScript + React/Next.js",
+      "category": "група онлайн",
+      "duration": "230 годин",
+      "schedule": [{
+        "day": "ВТ",
+        "time": "20:00 - 22:00"
+      }, {
+        "day": "ЧТВ",
+        "time": "20:00 - 22:00"
+      }, {
+        "day": "НЕД",
+        "time": "17:00 - 21:00"
+      }],
+      "startDate": "~20.02.26",
+      "featured": true, 
+      "summary": "Для тих, хто вже знайомий з HTML/CSS і готовий зануритись у світ програмування та створення інтерактивних веб-додатків.",
+      "priceInfo": "від 1500 грн",
+      "learningFormatsAvailable": ["З менторством", "Без менторства"],
+      "description": "Можливість одразу вивчати JavaScript для тих, хто має хочаб базові знання з HTML/CSS. Для цього курсу доступні три форми навчання.",
+      "modules": [
+        {
+          "title": "JavaScript/TypeScript",
+          "duration": "180 годин",
+          "topics": [
+            "Лексична структура, змінні",
+            "Типи даних та їх методи",
+            "Оператори",
+            "Умовні конструкції та цикли",
+            "Об'єкти, масиви та їх методи",
+            "Функції",
+            "Обробка помилок",
+            "Класи",
+            "Модулі",
+            "DOM, Events",
+            "Canvas",
+            "Асинхронний JavaScript",
+            "Валідація форм та RegExp",
+            "URL, History, Webstorage",
+            "Тестування коду (Jest)",
+            "Документація до проекту (jsDoc)",
+            "TypeScript - базові типи даних",
+            "TypeScript - Union Types, Type Aliases, Interfaces",
+            "TypeScript - Type Assertion та Literal Types",
+            "TypeScript - Generics, Conditional Types",
+            "TypeScript - Void, Unknown, Never",
+            "TypeScript - Типізація функцій",
+            "Багато практики на уроках та не менш ніж 30 домашніх завдань/проектів з перевіркою та фідбеком"
+          ]
+        },
+        {
+          "title": "React 19/Next.js 15",
+          "duration": "50 годин",
+          "topics": [
+            "Налаштування середовища розробки з Vite",
+            "JSX та TSX синтаксис",
+            "React Components, Props, State",
+            "React Hooks (useState, useEffect, useContext, useRef)",
+            "Нові хуки React 19 (useOptimistic, useFormStatus, useFormState)",
+            "Actions в React 19",
+            "Асинхронні компоненти в React 19",
+            "Suspense та lazy loading",
+            "Оптимізація рендерингу та Server Components",
+            "Next.js - розгортання проекту",
+            "Next.js App Router",
+            "Next.js Data Fetching",
+            "Next.js Rendering стратегії",
+            "Next.js Partial Prerendering",
+            "Next.js Caching та Revalidation",
+            "Next.js Styling (CSS Modules, Tailwind)",
+            "Next.js Оптимізація та аналітика",
+            "Next.js Authentication з NextAuth.js",
+            "Next.js Deploying (Vercel, Render)",
+            "Багато практики на уроках: Проект з Vite та React 19, Проект з Next.js 15 App Router, Великий проект з використанням Next.js 15, React 19, TypeScript, Tailwind CSS та Server Components"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frontend-full-mentored",
+      "category": "з менторством",
+      "title": "Frontend-розробка",
+      "duration": "збережені відеозаписи 320 годин занять онлайн групи",
+      "startDate": "~30.11.25",
+      "schedule": [{
+        "day": "  вільний",
+        "time": "графік"
+      }],
+      "featured": true,
+      "summary": "Комплексний курс, що охоплює HTML, CSS, JavaScript, TypeScript, React 19 та Next.js 15. Все, що потрібно для старту кар'єри.",
+      "priceInfo": "від 2000грн/міс",
+      "learningFormatsAvailable": [
+        "Група онлайн",
+        "З менторством",
+        "Без менторства"
+      ],
+      "description": "Курс складається з трьох частин. Наведені нижче переліки тематичних блоків не є вичерпними. Крім наведених нижче технологій окрема увага приділяється налаштуваню та використанню інструментів розробника (VS Code, Chrome DevTools, Git/GitHub/GitHubPages, npm тощо)",
+      "modules": [
+        {
+          "title": "HTML/CSS",
+          "duration": "90 годин",
+          "topics": [
+            "Структура сторінок",
+            "HTML-елементи",
+            "Семантика",
+            "Текст, зображення та посилання",
+            "Форми та ix стилізація",
+            "Мультімедіа",
+            "CSS-селектори та специфічність",
+            "Шрифти",
+            "Box-model, Позиціонування",
+            "Flexbox та Grid Layout",
+            "Кольори та фонові зображення",
+            "Змінні та функції в CSS",
+            "Переходи та Анімація",
+            "@media, адаптивні зображення, бургер-меню",
+            "@layer, Popover API, Carousel API",
+            "Препроцесори (SCSS)",
+            "CSS-бібліотеки та фреймворки (MVP, Bootstrap, Tailwind)",
+            "Багато практики на уроках та не менш ніж 10 домашніх завдань/проектів з перевіркою та фідбеком",
+            "бонус: Доступ до 100+ високоякісних figma-макетів з frontendmentor.io"
+          ]
+        },
+        {
+          "title": "JavaScript/TypeScript",
+          "duration": "180 годин",
+          "topics": [
+            "Лексична структура, змінні",
+            "Типи даних та їх методи",
+            "Оператори",
+            "Умовні конструкції та цикли",
+            "Об'єкти, масиви та їх методи",
+            "Функції",
+            "Обробка помилок",
+            "Класи",
+            "Модулі",
+            "DOM, Events",
+            "Canvas",
+            "Асинхронний JavaScript",
+            "Валідація форм та RegExp",
+            "URL, History, Webstorage",
+            "Тестування коду (Jest)",
+            "Документація до проекту (jsDoc)",
+            "TypeScript - базові типи даних",
+            "TypeScript - Union Types, Type Aliases, Interfaces",
+            "TypeScript - Type Assertion та Literal Types",
+            "TypeScript - Generics, Conditional Types",
+            "TypeScript - Void, Unknown, Never",
+            "TypeScript - Типізація функцій",
+            "Багато практики на уроках та не менш ніж 30 домашніх завдань/проектів з перевіркою та фідбеком"
+          ]
+        },
+        {
+          "title": "React 19/Next.js 15",
+          "duration": "50 годин",
+          "topics": [
+            "Налаштування середовища розробки з Vite",
+            "JSX та TSX синтаксис",
+            "React Components, Props, State",
+            "React Hooks (useState, useEffect, useContext, useRef)",
+            "Нові хуки React 19 (useOptimistic, useFormStatus, useFormState)",
+            "Actions в React 19",
+            "Асинхронні компоненти в React 19",
+            "Suspense та lazy loading",
+            "Оптимізація рендерингу та Server Components",
+            "Next.js - розгортання проекту",
+            "Next.js App Router",
+            "Next.js Data Fetching",
+            "Next.js Rendering стратегії",
+            "Next.js Partial Prerendering",
+            "Next.js Caching та Revalidation",
+            "Next.js Styling (CSS Modules, Tailwind)",
+            "Next.js Оптимізація та аналітика",
+            "Next.js Authentication з NextAuth.js",
+            "Next.js Deploying (Vercel, Render)",
+            "Багато практики на уроках: Проект з Vite та React 19, Проект з Next.js 15 App Router, Великий проект з використанням Next.js 15, React 19, TypeScript, Tailwind CSS та Server Components"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frontend-full-mentored",
+      "category": "автономно",
+      "title": "Frontend-розробка",
+      "duration": "збережені відеозаписи 320 годин занять онлайн групи",
+      "startDate": "~30.11.25",
+      "schedule": [{
+        "day": "  вільний",
+        "time": "графік"
+      }],
+      "featured": true,
+      "summary": "Комплексний курс, що охоплює HTML, CSS, JavaScript, TypeScript, React 19 та Next.js 15. Все, що потрібно для старту кар'єри.",
+      "priceInfo": "від 2000грн/міс",
+      "learningFormatsAvailable": [
+        "Група онлайн",
+        "З менторством",
+        "Без менторства"
+      ],
+      "description": "Курс складається з трьох частин. Наведені нижче переліки тематичних блоків не є вичерпними. Крім наведених нижче технологій окрема увага приділяється налаштуваню та використанню інструментів розробника (VS Code, Chrome DevTools, Git/GitHub/GitHubPages, npm тощо)",
+      "modules": [
+        {
+          "title": "HTML/CSS",
+          "duration": "90 годин",
+          "topics": [
+            "Структура сторінок",
+            "HTML-елементи",
+            "Семантика",
+            "Текст, зображення та посилання",
+            "Форми та ix стилізація",
+            "Мультімедіа",
+            "CSS-селектори та специфічність",
+            "Шрифти",
+            "Box-model, Позиціонування",
+            "Flexbox та Grid Layout",
+            "Кольори та фонові зображення",
+            "Змінні та функції в CSS",
+            "Переходи та Анімація",
+            "@media, адаптивні зображення, бургер-меню",
+            "@layer, Popover API, Carousel API",
+            "Препроцесори (SCSS)",
+            "CSS-бібліотеки та фреймворки (MVP, Bootstrap, Tailwind)",
+            "Багато практики на уроках та не менш ніж 10 домашніх завдань/проектів з перевіркою та фідбеком",
+            "бонус: Доступ до 100+ високоякісних figma-макетів з frontendmentor.io"
+          ]
+        },
+        {
+          "title": "JavaScript/TypeScript",
+          "duration": "180 годин",
+          "topics": [
+            "Лексична структура, змінні",
+            "Типи даних та їх методи",
+            "Оператори",
+            "Умовні конструкції та цикли",
+            "Об'єкти, масиви та їх методи",
+            "Функції",
+            "Обробка помилок",
+            "Класи",
+            "Модулі",
+            "DOM, Events",
+            "Canvas",
+            "Асинхронний JavaScript",
+            "Валідація форм та RegExp",
+            "URL, History, Webstorage",
+            "Тестування коду (Jest)",
+            "Документація до проекту (jsDoc)",
+            "TypeScript - базові типи даних",
+            "TypeScript - Union Types, Type Aliases, Interfaces",
+            "TypeScript - Type Assertion та Literal Types",
+            "TypeScript - Generics, Conditional Types",
+            "TypeScript - Void, Unknown, Never",
+            "TypeScript - Типізація функцій",
+            "Багато практики на уроках та не менш ніж 30 домашніх завдань/проектів з перевіркою та фідбеком"
+          ]
+        },
+        {
+          "title": "React 19/Next.js 15",
+          "duration": "50 годин",
+          "topics": [
+            "Налаштування середовища розробки з Vite",
+            "JSX та TSX синтаксис",
+            "React Components, Props, State",
+            "React Hooks (useState, useEffect, useContext, useRef)",
+            "Нові хуки React 19 (useOptimistic, useFormStatus, useFormState)",
+            "Actions в React 19",
+            "Асинхронні компоненти в React 19",
+            "Suspense та lazy loading",
+            "Оптимізація рендерингу та Server Components",
+            "Next.js - розгортання проекту",
+            "Next.js App Router",
+            "Next.js Data Fetching",
+            "Next.js Rendering стратегії",
+            "Next.js Partial Prerendering",
+            "Next.js Caching та Revalidation",
+            "Next.js Styling (CSS Modules, Tailwind)",
+            "Next.js Оптимізація та аналітика",
+            "Next.js Authentication з NextAuth.js",
+            "Next.js Deploying (Vercel, Render)",
+            "Багато практики на уроках: Проект з Vite та React 19, Проект з Next.js 15 App Router, Великий проект з використанням Next.js 15, React 19, TypeScript, Tailwind CSS та Server Components"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frontend-full-mentored",
+      "category": "індивідуальні заняття",
+      "title": "Frontend-розробка",
+      "duration": "збережені відеозаписи 320 годин занять онлайн групи",
+      "startDate": "~30.11.25",
+      "schedule": [{
+        "day": "  вільний",
+        "time": "графік"
+      }],
+      "featured": true,
+      "summary": "Комплексний курс, що охоплює HTML, CSS, JavaScript, TypeScript, React 19 та Next.js 15. Все, що потрібно для старту кар'єри.",
+      "priceInfo": "від 2000грн/міс",
+      "learningFormatsAvailable": [
+        "Група онлайн",
+        "З менторством",
+        "Без менторства"
+      ],
+      "description": "Курс складається з трьох частин. Наведені нижче переліки тематичних блоків не є вичерпними. Крім наведених нижче технологій окрема увага приділяється налаштуваню та використанню інструментів розробника (VS Code, Chrome DevTools, Git/GitHub/GitHubPages, npm тощо)",
+      "modules": [
+        {
+          "title": "HTML/CSS",
+          "duration": "90 годин",
+          "topics": [
+            "Структура сторінок",
+            "HTML-елементи",
+            "Семантика",
+            "Текст, зображення та посилання",
+            "Форми та ix стилізація",
+            "Мультімедіа",
+            "CSS-селектори та специфічність",
+            "Шрифти",
+            "Box-model, Позиціонування",
+            "Flexbox та Grid Layout",
+            "Кольори та фонові зображення",
+            "Змінні та функції в CSS",
+            "Переходи та Анімація",
+            "@media, адаптивні зображення, бургер-меню",
+            "@layer, Popover API, Carousel API",
+            "Препроцесори (SCSS)",
+            "CSS-бібліотеки та фреймворки (MVP, Bootstrap, Tailwind)",
+            "Багато практики на уроках та не менш ніж 10 домашніх завдань/проектів з перевіркою та фідбеком",
+            "бонус: Доступ до 100+ високоякісних figma-макетів з frontendmentor.io"
+          ]
+        },
+        {
+          "title": "JavaScript/TypeScript",
+          "duration": "180 годин",
+          "topics": [
+            "Лексична структура, змінні",
+            "Типи даних та їх методи",
+            "Оператори",
+            "Умовні конструкції та цикли",
+            "Об'єкти, масиви та їх методи",
+            "Функції",
+            "Обробка помилок",
+            "Класи",
+            "Модулі",
+            "DOM, Events",
+            "Canvas",
+            "Асинхронний JavaScript",
+            "Валідація форм та RegExp",
+            "URL, History, Webstorage",
+            "Тестування коду (Jest)",
+            "Документація до проекту (jsDoc)",
+            "TypeScript - базові типи даних",
+            "TypeScript - Union Types, Type Aliases, Interfaces",
+            "TypeScript - Type Assertion та Literal Types",
+            "TypeScript - Generics, Conditional Types",
+            "TypeScript - Void, Unknown, Never",
+            "TypeScript - Типізація функцій",
+            "Багато практики на уроках та не менш ніж 30 домашніх завдань/проектів з перевіркою та фідбеком"
+          ]
+        },
+        {
+          "title": "React 19/Next.js 15",
+          "duration": "50 годин",
+          "topics": [
+            "Налаштування середовища розробки з Vite",
+            "JSX та TSX синтаксис",
+            "React Components, Props, State",
+            "React Hooks (useState, useEffect, useContext, useRef)",
+            "Нові хуки React 19 (useOptimistic, useFormStatus, useFormState)",
+            "Actions в React 19",
+            "Асинхронні компоненти в React 19",
+            "Suspense та lazy loading",
+            "Оптимізація рендерингу та Server Components",
+            "Next.js - розгортання проекту",
+            "Next.js App Router",
+            "Next.js Data Fetching",
+            "Next.js Rendering стратегії",
+            "Next.js Partial Prerendering",
+            "Next.js Caching та Revalidation",
+            "Next.js Styling (CSS Modules, Tailwind)",
+            "Next.js Оптимізація та аналітика",
+            "Next.js Authentication з NextAuth.js",
+            "Next.js Deploying (Vercel, Render)",
+            "Багато практики на уроках: Проект з Vite та React 19, Проект з Next.js 15 App Router, Великий проект з використанням Next.js 15, React 19, TypeScript, Tailwind CSS та Server Components"
+          ]
+        }
+      ]
+    }
+  ],
+  "learningFormats": {
+    "title": "Як це працює?",
+    "description": "Вам пропонується три організаційні моделі навчання, оберіть найкращу для себе. Доступ до всіх матеріалів курсу для будь-якого варіанту навчання не має обмежень в часі (поки будуть функціонувати сервіси Google)",
+    "formats": [
+      {
+        "title": "Група онлайн",
+        "subtitle": "за графіком",
+        "features": [
+          "Три рази на тиждень (вечірній час, загально 8 годин на тиждень)",
+          "Заняття в zoom",
+          "Додаткові навчальні матеріали в Google Classroom",
+          "Збережені відеозаписи уроків (приватний доступ)",
+          "Архіви коду ментора з уроків на Google Drive",
+          "Онлайн-перевірка домашніх завдань",
+          "Закритий чат для студентів групи та ментора-автора курсу (підтримка 16 годин на добу, 7 днів на тиждень)",
+          "За потреби індивідуальна zoom-консультація з трансляцією коду",
+          "Тривалість курсу по календарю не менше 10 місяців",
+          "Підтримка ментора +2 місяці від дати останнього уроку курсу",
+          "Початок навчання орієнтовно 15.11.25"
+        ],
+        "prices": [
+          {
+            "course": "повний курс Frontend",
+            "oldPrice": "16000 грн",
+            "newPrice": "12000 грн (6*2000 грн)",
+            "promoUntil": "пропозиція дійсна до 05.11.25"
+          }
+        ]
+      },
+      {
+        "title": "З менторством",
+        "subtitle": "вільний графік",
+        "features": [
+          "Навчання з власною швидкістю та графіком",
+          "Перегляд відеозаписів уроків онлайн-групи",
+          "Додаткові навчальні матеріали в Google Classroom",
+          "Архіви коду ментора з уроків на Google Drive",
+          "Фідбек по домашнім завданням",
+          "Чат з ментором-автором курсу (підтримка 16 годин на добу, 7 днів на тиждень)",
+          "За потреби індивідуальна zoom-консультація з трансляцією коду",
+          "Підтримка ментора доступна 12 місяців з моменту відкриття першого уроку курсу",
+          "Доступ до уроків надається порційно, з орієнтиром на виконані домашні завдання.",
+          "Початок навчання в будь-який момент"
+        ],
+        "prices": [
+          {
+            "course": "тільки HTML/CSS (менторство на 3 місяці)",
+            "oldPrice": "4000 грн",
+            "newPrice": "3000 грн (3*1000 грн)",
+            "promoUntil": "пропозиція дійсна до 01.12.25"
+          },
+          {
+            "course": "тільки JS/TS (менторство на 8 місяців)",
+            "oldPrice": "9000 грн",
+            "newPrice": "7500 грн (5*1500 грн)",
+            "promoUntil": "пропозиція дійсна до 01.12.25"
+          },
+          {
+            "course": "повний курс Frontend (менторство на 12 місяців)",
+            "oldPrice": "12000 грн",
+            "newPrice": "9000 грн (6*1500 грн)",
+            "promoUntil": "пропозиція дійсна до 01.12.25"
+          }
+        ]
+      },
+      {
+        "title": "Без менторства",
+        "subtitle": "без обмежень в часі",
+        "features": [
+          "Навчання з власною швидкістю та графіком",
+          "Перегляд відеозаписів уроків онлайн-групи",
+          "Додаткові навчальні матеріали в Google Classroom",
+          "Архіви коду ментора з уроків на Google Drive",
+          "Доступ до всіх матеріалів та відеозаписів уроків курсу надається одразу.",
+          "Без можливості отримати фідбек по домашнім завданням",
+          "Без спілкування з автором курсу (крім можливих питань доступу до матеріалів)",
+          "Без індивідуального онлайн консультування",
+          "Початок навчання в будь-який момент"
+        ],
+        "prices": [
+          {
+            "course": "тільки HTML/CSS",
+            "price": "999 грн"
+          },
+          {
+            "course": "тільки JS/TS",
+            "oldPrice": "6000 грн",
+            "newPrice": "4000 грн (2*2000 грн)",
+            "promoUntil": "пропозиція дійсна до 01.12.25"
+          },
+          {
+            "course": "повний курс Frontend",
+            "oldPrice": "8000 грн",
+            "newPrice": "6000 грн (3*2000 грн)",
+            "promoUntil": "пропозиція дійсна до 01.12.25"
+          }
+        ]
+      }
+    ]
+  }
+}

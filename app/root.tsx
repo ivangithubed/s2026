@@ -23,12 +23,17 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+import { Navbar } from "~/components/Navbar";
+import { Footer } from "~/components/Footer";
+import { ThemeProvider, ThemeScript } from "~/components/ThemeProvider";
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="uk" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <ThemeScript />
         <Meta />
         <Links />
       </head>
@@ -42,7 +47,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <ThemeProvider>
+      <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-gray-900 dark:text-white">
+        <Navbar />
+        <main className="flex-grow container mx-auto px-4 py-8">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
