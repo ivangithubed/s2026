@@ -21,13 +21,13 @@ type LearningFormatProps = {
 
 export const LearningFormat = ({ format }: { format: LearningFormatData }) => {
   return (
-    <div className="bg-slate-100 dark:bg-slate-900 p-6 rounded-lg border border-slate-200 dark:border-slate-800 flex flex-col mb-6">
+    <div className="bg-slate-100 dark:bg-slate-900 p-6 rounded-lg border border-slate-200 dark:border-slate-800 flex flex-col">
       <h3 className="text-2xl font-bold text-lime-600 dark:text-lime-400 mb-2">{format.title}</h3>
-      <p className="text-slate-500 dark:text-gray-400 mb-4 flex-grow">{format.subtitle}</p>
+      <p className="text-slate-500 dark:text-gray-400 mb-4 grow">{format.subtitle}</p>
       <ul className="space-y-2">
         {format.features.map((feature, index) => (
           <li key={index} className="flex items-start">
-            <Check className="w-5 h-5 text-lime-600 dark:text-lime-400 mr-3 flex-shrink-0" />
+            <Check className="w-5 h-5 text-lime-600 dark:text-lime-400 mr-3 shrink-0" />
             <span>{feature}</span>
           </li>
         ))}

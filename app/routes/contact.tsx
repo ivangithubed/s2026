@@ -1,14 +1,21 @@
-import { Form } from "react-router";
+import { useState } from 'react';
+
+const contactPlaceholders: { [key: string]: string } = {
+  viber: 'Ваш номер у Viber',
+  whatsapp: 'Ваш номер у WhatsApp',
+  telegram: 'Ваш @username або номер у Telegram',
+  facebook: 'Посилання на ваш профіль Facebook',
+};
 
 export default function ContactPage() {
+  const [selectedContact, setSelectedContact] = useState('');
   return (
     <div>
       <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-        Зв'яжіться з нами
+        Маєте питання щодо курсів?
       </h1>
       <p className="text-center text-gray-600 dark:text-gray-300 mb-8 max-w-xl mx-auto">
-        Маєте питання щодо курсів або пропозиції? Заповніть форму нижче, і я
-        зв'яжуся з вами найближчим часом.
+        Заповніть форму нижче, і я зв'яжуся з вами найближчим часом.
       </p>
       <form
         method="post"
@@ -110,57 +117,46 @@ export default function ContactPage() {
           </div>
         </fieldset>
 
-        <fieldset className="mb-6">
+                <fieldset className="mb-6">
           <legend className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
             Оберіть спосіб зв'язку з Вами:
           </legend>
           <div className="flex flex-wrap gap-4">
-            <label className="flex items-center">
-              <input
-                type="radio"
-                name="contactMethod"
-                value="viber"
-                className="w-4 h-4 text-lime-600 bg-slate-100 border-slate-300 focus:ring-lime-500 dark:focus:ring-lime-600 dark:ring-offset-slate-800 focus:ring-2 dark:bg-slate-700 dark:border-slate-600"
-              />
-              <span className="ml-2 text-sm text-slate-900 dark:text-gray-300">
-                Viber
-              </span>
-            </label>
-            <label className="flex items-center">
-              <input
-                type="radio"
-                name="contactMethod"
-                value="whatsapp"
-                className="w-4 h-4 text-lime-600 bg-slate-100 border-slate-300 focus:ring-lime-500 dark:focus:ring-lime-600 dark:ring-offset-slate-800 focus:ring-2 dark:bg-slate-700 dark:border-slate-600"
-              />
-              <span className="ml-2 text-sm text-slate-900 dark:text-gray-300">
-                WhatsApp
-              </span>
-            </label>
-            <label className="flex items-center">
-              <input
-                type="radio"
-                name="contactMethod"
-                value="telegram"
-                className="w-4 h-4 text-lime-600 bg-slate-100 border-slate-300 focus:ring-lime-500 dark:focus:ring-lime-600 dark:ring-offset-slate-800 focus:ring-2 dark:bg-slate-700 dark:border-slate-600"
-              />
-              <span className="ml-2 text-sm text-slate-900 dark:text-gray-300">
-                Telegram
-              </span>
-            </label>
-            <label className="flex items-center">
-              <input
-                type="radio"
-                name="contactMethod"
-                value="facebook"
-                className="w-4 h-4 text-lime-600 bg-slate-100 border-slate-300 focus:ring-lime-500 dark:focus:ring-lime-600 dark:ring-offset-slate-800 focus:ring-2 dark:bg-slate-700 dark:border-slate-600"
-              />
-              <span className="ml-2 text-sm text-slate-900 dark:text-gray-300">
-                Facebook Messenger
-              </span>
-            </label>
+            {Object.keys(contactPlaceholders).map((method) => (
+              <label key={method} className="flex items-center">
+                <input
+                  type="radio"
+                  name="contactMethod"
+                  value={method}
+                  checked={selectedContact === method}
+                  onChange={(e) => setSelectedContact(e.target.value)}
+                  className="w-4 h-4 text-lime-600 bg-slate-100 border-slate-300 focus:ring-lime-500 dark:focus:ring-lime-600 dark:ring-offset-slate-800 focus:ring-2 dark:bg-slate-700 dark:border-slate-600"
+                />
+                <span className="ml-2 text-sm text-slate-900 dark:text-gray-300">
+                  {method.charAt(0).toUpperCase() + method.slice(1)}
+                </span>
+              </label>
+            ))}
           </div>
         </fieldset>
+
+        {selectedContact && (
+          <div className="mb-6">
+            <label
+              htmlFor="contact-detail"
+              className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+              Ваш контакт
+            </label>
+            <input
+              type="text"
+              id="contact-detail"
+              name="contactDetail"
+              className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-lime-500 focus:border-lime-500 block w-full p-2.5 dark:bg-slate-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-400 dark:focus:border-lime-400"
+              placeholder={contactPlaceholders[selectedContact]}
+              required
+            />
+          </div>
+        )}
 
         <button
           type="submit"

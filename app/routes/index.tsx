@@ -36,10 +36,10 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
     <>
       <div className="text-center py-16">
         <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-4">
-          Сучасна Frontend-розробка
+          Навчання веб-розробці
         </h1>
         <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-          Опануйте HTML, CSS, JavaScript, TypeScript, React та Next.js на практичних курсах від автора YouTube-каналу "Навчаємося Разом"
+          Опануйте HTML, CSS, JavaScript, TypeScript, React та Next.js на практичних курсах від автора YouTube-каналу <Link to="https://www.youtube.com/@itmentor" target="_blank" rel="noopener noreferrer" className="text-lime-600 dark:text-lime-400">"Навчаємося Разом"</Link>
         </p>
         <div className="space-x-4">
           <Link 

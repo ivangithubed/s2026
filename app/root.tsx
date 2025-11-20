@@ -33,6 +33,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <ThemeScript />
         <Meta />
         <Links />
@@ -51,7 +52,7 @@ export default function App() {
     <ThemeProvider>
       <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-gray-900 dark:text-white">
         <Navbar />
-        <main className="flex-grow container mx-auto px-4 py-8">
+        <main className="grow container mx-auto px-4 py-8">
           <Outlet />
         </main>
         <Footer />

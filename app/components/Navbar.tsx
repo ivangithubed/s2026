@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router";
 import { Menu, X, PlaySquare, SendHorizonal } from "lucide-react"; // Using MessageSquare for Discord as a placeholder
 import { ThemeSwitcher } from "./ThemeSwitcher";
+import { HiPaperClip } from "react-icons/hi";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,8 @@ export const Navbar = () => {
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link
           to="/"
-          className="text-2xl font-bold text-slate-900 dark:text-white hover:text-lime-600 dark:hover:text-lime-400 transition">
+          className="text-2xl font-bold text-slate-900 dark:text-white hover:text-lime-600 dark:hover:text-lime-400 transition flex items-center gap-2">
+          <HiPaperClip />
           IT-Mentor
         </Link>
 
@@ -28,9 +30,9 @@ export const Navbar = () => {
           <NavLink to="/courses" className={navLinkClass}>
             Курси
           </NavLink>
-          {/* <NavLink to="/contact" className={navLinkClass}>
+          <NavLink to="/contact" className={navLinkClass}>
             Контакти
-          </NavLink> */}
+          </NavLink>
           {/* <NavLink to="/about" className={navLinkClass}>
             Про автора
           </NavLink> */}
@@ -91,12 +93,12 @@ export const Navbar = () => {
               onClick={() => setIsOpen(false)}>
               Контакти
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="/about"
               className={navLinkClass}
               onClick={() => setIsOpen(false)}>
               Про автора
-            </NavLink>
+            </NavLink> */}
             <div className="flex justify-center gap-6 pt-4 mt-4 border-t border-slate-200 dark:border-slate-800">
               <a
                 href="https://www.youtube.com/@itmentor"

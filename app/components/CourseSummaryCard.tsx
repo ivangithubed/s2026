@@ -13,9 +13,9 @@ const getCategoryStyles = (category: string) => {
       return `${baseClasses} bg-lime-600 text-white dark:bg-lime-400 dark:text-slate-950`;
     case 'з менторством':
       return `${baseClasses} bg-sky-600 text-white dark:bg-sky-400 dark:text-slate-950`;
-    case 'автономно':
+    case 'без менторства':
       return `${baseClasses} bg-amber-500 text-white dark:bg-amber-400 dark:text-slate-950`;
-    case 'індивідуальні заняття':
+    case 'індивідуально':
       return `${baseClasses} bg-violet-600 text-white dark:bg-violet-400 dark:text-slate-950`;
     default:
       return `${baseClasses} bg-slate-500 text-white dark:bg-slate-400 dark:text-slate-950`;
@@ -27,7 +27,12 @@ export const CourseSummaryCard = ({ course }: CourseSummaryCardProps) => {
     <motion.div
       className="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-6 flex flex-col h-full border border-slate-200 dark:border-slate-800"
       whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}>
-      <div className="flex justify-end">
+      <div className="flex justify-end items-start gap-2">
+        {course.age && (
+          <span className="inline-block bg-slate-200 text-slate-700 text-xs font-semibold px-2.5 py-0.5 rounded-md dark:bg-slate-700 dark:text-slate-300">
+            {course.age}
+          </span>
+        )}
         <span className={getCategoryStyles(course.category)}>
           {course.category}
         </span>
@@ -36,7 +41,7 @@ export const CourseSummaryCard = ({ course }: CourseSummaryCardProps) => {
         {course.title}
       </h3>
       <p className="text-slate-500 dark:text-gray-400 mb-2">
-        Тривалість: {course.duration}
+        Особливості: {course.spec}
       </p>
       {course.schedule && (
         <div className="text-slate-500 dark:text-gray-400 mb-4 text-sm">
@@ -48,7 +53,7 @@ export const CourseSummaryCard = ({ course }: CourseSummaryCardProps) => {
           </div>
         </div>
       )}
-      <p className="text-slate-700 dark:text-gray-300 mb-6 flex-grow">
+      <p className="text-slate-700 dark:text-gray-300 mb-6 grow">
         {course.summary}
       </p>
       <div className="mt-auto">
