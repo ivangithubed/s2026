@@ -8,6 +8,7 @@ import { CourseSummaryCard } from "~/components/CourseSummaryCard";
 import type { Course } from "~/components/CourseCard";
 import { Faq } from '~/components/Faq';
 import type { FaqItem } from '~/components/Faq';
+import { HtmlDayPromo } from '~/components/HtmlDayPromo';
 
 export async function loader({ request }: Route.LoaderArgs) {
   const testimonialsUrl = new URL("/data/testimonials.json", request.url);
@@ -23,7 +24,7 @@ export async function loader({ request }: Route.LoaderArgs) {
   const testimonials = (await testimonialsRes.json()) as Testimonial[];
   const coursesData = (await coursesRes.json()) as { courses: Course[] };
   const faqItems = (await faqRes.json()) as FaqItem[];
-  
+
   const featuredCourses = coursesData.courses.filter(course => course.featured);
 
   return { testimonials, featuredCourses, faqItems };
@@ -42,7 +43,7 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
           Опануйте HTML, CSS, JavaScript, TypeScript, React та Next.js на практичних курсах від автора YouTube-каналу <Link to="https://www.youtube.com/@itmentor" target="_blank" rel="noopener noreferrer" className="text-lime-600 dark:text-lime-400">"Навчаємося Разом"</Link>
         </p>
         <div className="space-x-4">
-          <Link 
+          <Link
             to="/courses"
             className="bg-lime-600 hover:bg-lime-700 dark:bg-lime-400 dark:hover:bg-lime-500 text-white dark:text-slate-950 font-bold py-3 px-6 rounded-lg transition"
           >
@@ -52,7 +53,7 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
       </div>
       {/* Featured Courses Section */}
       {featuredCourses.length > 0 && (
-        <motion.section 
+        <motion.section
           className="py-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -60,8 +61,8 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Обрані курси</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredCourses.map((course, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {featuredCourses.slice(0, 4).map((course, index) => (
               <motion.div
                 key={course.id}
                 initial={{ opacity: 0, y: 50 }}
@@ -75,6 +76,16 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
           </div>
         </motion.section>
       )}
+
+      {/* HTML Day Promo Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <HtmlDayPromo />
+      </motion.div>
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}
