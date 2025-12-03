@@ -11,6 +11,32 @@ import { Analytics } from "@vercel/analytics/react";
 import type { Route } from "./+types/root";
 import "./app.css";
 
+const siteUrl = "https://it-mentor.in.ua";
+const siteName = "IT-Mentor";
+const siteDescription = "Курси веб-розробки: HTML, CSS, JavaScript, TypeScript, React та Next.js. Практичне навчання з менторською підтримкою від автора YouTube-каналу \"Навчаємося Разом\".";
+
+export const meta: Route.MetaFunction = () => [
+  { title: `${siteName} — Курси frontend` },
+  { name: "description", content: siteDescription },
+  { name: "keywords", content: "курси програмування, веб-розробка, HTML, CSS, JavaScript, TypeScript, React, Next.js, frontend, навчання, ментор, IT курси Україна" },
+  { name: "author", content: "IT-Mentor" },
+  { name: "theme-color", content: "#84cc16" },
+  // Open Graph
+  { property: "og:type", content: "website" },
+  { property: "og:url", content: siteUrl },
+  { property: "og:title", content: `${siteName} — Курси frontend` },
+  { property: "og:description", content: siteDescription },
+  { property: "og:image", content: `${siteUrl}/images/og-image.png` },
+  { property: "og:site_name", content: siteName },
+  { property: "og:locale", content: "uk_UA" },
+  // Twitter Card
+  { name: "twitter:card", content: "summary_large_image" },
+  { name: "twitter:url", content: siteUrl },
+  { name: "twitter:title", content: `${siteName} — Курси frontend` },
+  { name: "twitter:description", content: siteDescription },
+  { name: "twitter:image", content: `${siteUrl}/images/og-image.png` },
+];
+
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -22,6 +48,7 @@ export const links: Route.LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
+  { rel: "canonical", href: siteUrl },
 ];
 
 import { Navbar } from "~/components/Navbar";
