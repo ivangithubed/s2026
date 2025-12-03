@@ -9,29 +9,56 @@ import type { Course } from "~/components/CourseCard";
 import { Faq } from '~/components/Faq';
 import type { FaqItem } from '~/components/Faq';
 import { HtmlDayPromo } from '~/components/HtmlDayPromo';
+import ReviewsSection from '~/components/ReviewsSection';
+
+interface Review {
+  id: string;
+  date: string;
+  displayName: string;
+  displayNameType: string;
+  ratings: {
+    mentorComfort: number;
+    expectationsMatch: number;
+  };
+  atmosphere: {
+    generalImpression: string;
+    likedStyle: string;
+    threeWords: string;
+  };
+  mentor: {
+    memorable: string;
+  };
+}
+
+interface ReviewsData {
+  reviews: Review[];
+}
 
 export async function loader({ request }: Route.LoaderArgs) {
   const testimonialsUrl = new URL("/data/testimonials.json", request.url);
   const coursesUrl = new URL("/data/courses.json", request.url);
   const faqUrl = new URL("/data/faq.json", request.url);
+  const reviewsUrl = new URL("/data/reviews.json", request.url);
 
-  const [testimonialsRes, coursesRes, faqRes] = await Promise.all([
+  const [testimonialsRes, coursesRes, faqRes, reviewsRes] = await Promise.all([
     fetch(testimonialsUrl.href),
     fetch(coursesUrl.href),
     fetch(faqUrl.href),
+    fetch(reviewsUrl.href),
   ]);
 
   const testimonials = (await testimonialsRes.json()) as Testimonial[];
   const coursesData = (await coursesRes.json()) as { courses: Course[] };
   const faqItems = (await faqRes.json()) as FaqItem[];
+  const reviewsData = (await reviewsRes.json()) as ReviewsData;
 
   const featuredCourses = coursesData.courses.filter(course => course.featured);
 
-  return { testimonials, featuredCourses, faqItems };
+  return { testimonials, featuredCourses, faqItems, reviews: reviewsData.reviews };
 }
 
 export default function HomePage({ loaderData }: Route.ComponentProps) {
-  const { testimonials, featuredCourses, faqItems } = loaderData as { testimonials: Testimonial[], featuredCourses: Course[], faqItems: FaqItem[] };
+  const { testimonials, featuredCourses, faqItems, reviews } = loaderData as { testimonials: Testimonial[], featuredCourses: Course[], faqItems: FaqItem[], reviews: Review[] };
 
   return (
     <>
@@ -97,6 +124,9 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
       </motion.div>
 
       {/* <Testimonials testimonials={testimonials} /> */}
+
+      {/* Reviews Section */}
+      <ReviewsSection reviews={reviews} />
 
       {/* <motion.div
         initial={{ opacity: 0, y: 50 }}

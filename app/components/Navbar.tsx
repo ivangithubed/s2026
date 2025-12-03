@@ -30,6 +30,9 @@ export const Navbar = () => {
           <NavLink to="/courses" className={navLinkClass}>
             Курси
           </NavLink>
+          <NavLink to="/reviews" className={navLinkClass}>
+            Відгуки
+          </NavLink>
           <NavLink to="/contact" className={navLinkClass}>
             Контакти
           </NavLink>
@@ -57,7 +60,7 @@ export const Navbar = () => {
               className="text-slate-500 dark:text-gray-400 hover:text-lime-600 dark:hover:text-lime-400">
               <SendHorizonal />
             </a>
-            
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -88,6 +91,12 @@ export const Navbar = () => {
               Курси
             </NavLink>
             <NavLink
+              to="/reviews"
+              className={navLinkClass}
+              onClick={() => setIsOpen(false)}>
+              Відгуки
+            </NavLink>
+            <NavLink
               to="/contact"
               className={navLinkClass}
               onClick={() => setIsOpen(false)}>
@@ -114,7 +123,7 @@ export const Navbar = () => {
                 className="text-slate-500 dark:text-gray-400 hover:text-lime-600 dark:hover:text-lime-400">
                 <SendHorizonal />
               </a>
-              
+
             </div>
           </div>
         </div>
