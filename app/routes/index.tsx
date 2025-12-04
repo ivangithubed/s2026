@@ -10,6 +10,7 @@ import { Faq } from '~/components/Faq';
 import type { FaqItem } from '~/components/Faq';
 import { HtmlDayPromo } from '~/components/HtmlDayPromo';
 import ReviewsSection from '~/components/ReviewsSection';
+import ParentReviewsSection from '~/components/ParentReviewsSection';
 
 interface Review {
   id: string;
@@ -34,31 +35,53 @@ interface ReviewsData {
   reviews: Review[];
 }
 
+interface ParentReview {
+  id: string;
+  date: string;
+  parentType: 'mom' | 'dad';
+  childName: string;
+  childAge: number;
+  formatSatisfaction: string;
+  formatComment: string;
+  explanationQuality: string;
+  favoritePart: string;
+  progressNoticed: string;
+  duration: string;
+  additionalComments: string;
+}
+
+interface ParentReviewsData {
+  reviews: ParentReview[];
+}
+
 export async function loader({ request }: Route.LoaderArgs) {
   const testimonialsUrl = new URL("/data/testimonials.json", request.url);
   const coursesUrl = new URL("/data/courses.json", request.url);
   const faqUrl = new URL("/data/faq.json", request.url);
   const reviewsUrl = new URL("/data/reviews.json", request.url);
+  const parentReviewsUrl = new URL("/data/parent-reviews.json", request.url);
 
-  const [testimonialsRes, coursesRes, faqRes, reviewsRes] = await Promise.all([
+  const [testimonialsRes, coursesRes, faqRes, reviewsRes, parentReviewsRes] = await Promise.all([
     fetch(testimonialsUrl.href),
     fetch(coursesUrl.href),
     fetch(faqUrl.href),
     fetch(reviewsUrl.href),
+    fetch(parentReviewsUrl.href),
   ]);
 
   const testimonials = (await testimonialsRes.json()) as Testimonial[];
   const coursesData = (await coursesRes.json()) as { courses: Course[] };
   const faqItems = (await faqRes.json()) as FaqItem[];
   const reviewsData = (await reviewsRes.json()) as ReviewsData;
+  const parentReviewsData = (await parentReviewsRes.json()) as ParentReviewsData;
 
   const featuredCourses = coursesData.courses.filter(course => course.featured);
 
-  return { testimonials, featuredCourses, faqItems, reviews: reviewsData.reviews };
+  return { testimonials, featuredCourses, faqItems, reviews: reviewsData.reviews, parentReviews: parentReviewsData.reviews };
 }
 
 export default function HomePage({ loaderData }: Route.ComponentProps) {
-  const { testimonials, featuredCourses, faqItems, reviews } = loaderData as { testimonials: Testimonial[], featuredCourses: Course[], faqItems: FaqItem[], reviews: Review[] };
+  const { testimonials, featuredCourses, faqItems, reviews, parentReviews } = loaderData as { testimonials: Testimonial[], featuredCourses: Course[], faqItems: FaqItem[], reviews: Review[], parentReviews: ParentReview[] };
 
   return (
     <>
@@ -127,6 +150,9 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
 
       {/* Reviews Section */}
       <ReviewsSection reviews={reviews} />
+
+      {/* Parent Reviews Section */}
+      <ParentReviewsSection reviews={parentReviews} />
 
       {/* <motion.div
         initial={{ opacity: 0, y: 50 }}
