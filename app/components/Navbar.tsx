@@ -33,6 +33,9 @@ export const Navbar = () => {
           <NavLink to="/reviews" className={navLinkClass}>
             Відгуки
           </NavLink>
+          <NavLink to="/tools" className={navLinkClass}>
+            Інструменти
+          </NavLink>
           <NavLink to="/contact" className={navLinkClass}>
             Контакти
           </NavLink>
@@ -95,6 +98,12 @@ export const Navbar = () => {
               className={navLinkClass}
               onClick={() => setIsOpen(false)}>
               Відгуки
+            </NavLink>
+            <NavLink
+              to="/tools"
+              className={navLinkClass}
+              onClick={() => setIsOpen(false)}>
+              Інструменти
             </NavLink>
             <NavLink
               to="/contact"

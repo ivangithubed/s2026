@@ -117,7 +117,7 @@ export default function ReviewsSection({ reviews }: ReviewsSectionProps) {
                         </div>
 
                         {/* Коротке враження */}
-                        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed flex-grow mb-3">
+                        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed grow mb-3">
                             {truncateText(review.atmosphere.generalImpression)}
                         </p>
 

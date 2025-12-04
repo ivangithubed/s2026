@@ -152,7 +152,7 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
       <ReviewsSection reviews={reviews} />
 
       {/* Parent Reviews Section */}
-      <ParentReviewsSection reviews={parentReviews} />
+      {/* <ParentReviewsSection reviews={parentReviews} /> */}
 
       {/* <motion.div
         initial={{ opacity: 0, y: 50 }}

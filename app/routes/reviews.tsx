@@ -315,7 +315,7 @@ export default function ReviewsPage({ loaderData }: { loaderData: Awaited<Return
             )}
 
             {/* Відгуки батьків */}
-            {parentReviews.length > 0 && (
+            {/* {parentReviews.length > 0 && (
                 <div>
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
                         <span className="text-blue-500">👨‍👩‍👧</span> Відгуки батьків підлітків
@@ -326,7 +326,7 @@ export default function ReviewsPage({ loaderData }: { loaderData: Awaited<Return
                         ))}
                     </div>
                 </div>
-            )}
+            )} */}
 
             {reviews.length === 0 && parentReviews.length === 0 && (
                 <div className="text-center py-16">

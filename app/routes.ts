@@ -12,5 +12,7 @@ export default [
   route("parent-reviews/:reviewId", "routes/parent-reviews.$reviewId.tsx"),
   route("feedback", "routes/feedback.tsx"),
   route("parent-survey", "routes/parent-survey.tsx"),
+  route("tools", "routes/tools.tsx"),
+  route("tools/grid-generator", "routes/tools.grid-generator.tsx"),
   route("*", "routes/notfound.tsx"),
 ] satisfies RouteConfig;
