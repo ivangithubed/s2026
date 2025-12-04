@@ -99,7 +99,7 @@ export default function ParentSurveyPage() {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch('https://formspree.io/f/mwpgbjow', {
+            const response = await fetch('https://formspree.io/f/meoyzebj', {
                 method: 'POST',
                 body: formData,
                 headers: {

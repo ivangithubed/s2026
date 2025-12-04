@@ -25,33 +25,33 @@ export function GridControls({
         <div className="flex flex-col gap-6 lg:gap-8 w-full lg:w-auto">
             <div>
                 <h1 className="text-lime-500 dark:text-lime-400 text-[28px] md:text-[32px] lg:text-[40px] font-bold leading-tight mb-4 lg:mb-8">
-                    CSS Grid<br />Generator
+                    CSS Grid<br />Генератор
                 </h1>
             </div>
 
             <div className="grid grid-cols-2 lg:flex lg:flex-col gap-3 md:gap-4 lg:gap-6">
                 <ControlInput
-                    label="Columns"
+                    label="Колонки"
                     value={columns}
                     onChange={onColumnsChange}
                 />
 
                 <ControlInput
-                    label="Rows"
+                    label="Рядки"
                     value={rows}
                     onChange={onRowsChange}
                 />
 
                 <ControlInput
-                    label="Column Gap"
-                    sublabel="(in px)"
+                    label="Відступ колонок"
+                    sublabel="(px)"
                     value={columnGap}
                     onChange={onColumnGapChange}
                 />
 
                 <ControlInput
-                    label="Row Gap"
-                    sublabel="(in px)"
+                    label="Відступ рядків"
+                    sublabel="(px)"
                     value={rowGap}
                     onChange={onRowGapChange}
                 />
@@ -61,7 +61,7 @@ export function GridControls({
                 onClick={onGetCode}
                 className="mt-2 lg:mt-4 px-6 lg:px-8 py-2.5 lg:py-3 bg-transparent border-2 border-lime-500 dark:border-lime-400 text-lime-600 dark:text-lime-400 rounded-full hover:bg-lime-500 dark:hover:bg-lime-400 hover:text-white dark:hover:text-slate-900 transition-colors w-full lg:w-auto font-medium"
             >
-                Get Code
+                Отримати код
             </button>
         </div>
     );
@@ -75,7 +75,7 @@ interface ControlInputProps {
 }
 
 function ControlInput({ label, sublabel, value, onChange }: ControlInputProps) {
-    const maxValue = label === 'Columns' ? 12 : 20;
+    const maxValue = label === 'Колонки' ? 12 : 20;
 
     const updateValue = (newValue: number) => {
         onChange(Math.max(0, Math.min(maxValue, newValue)));
