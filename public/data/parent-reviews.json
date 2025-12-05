@@ -1,60 +1,32 @@
 {
   "reviews": [
     {
-      "id": "mama-oleksiy-2025",
-      "date": "2025-11-15",
+      "id": "mama-yevhen-2025",
+      "date": "2025-08-23",
       "parentType": "mom",
-      "childName": "Олексій",
+      "childName": "учня Євгена",
       "childAge": 14,
       "formatSatisfaction": "yes",
-      "formatComment": "Дуже подобається, що заняття проходять в комфортному темпі",
-      "explanationQuality": "very_clear",
-      "favoritePart": "Створення власних проєктів, особливо коли син показує готові сайти",
-      "progressNoticed": "yes_notable",
-      "duration": "1_to_2_years",
-      "additionalComments": "Дякуємо за індивідуальний підхід! Син став набагато впевненіший у своїх силах."
-    },
-    {
-      "id": "tato-maria-2025",
-      "date": "2025-10-28",
-      "parentType": "dad",
-      "childName": "Марія",
-      "childAge": 12,
-      "formatSatisfaction": "yes",
       "formatComment": "",
-      "explanationQuality": "clear",
-      "favoritePart": "Ігрові елементи та практичні завдання. Донька завжди з нетерпінням чекає на заняття.",
+      "explanationQuality": "very_clear",
+      "favoritePart": "Практичне навчання та створювання власних проектів",
       "progressNoticed": "yes_notable",
       "duration": "6_to_12_months",
-      "additionalComments": "Раніше донька боялась комп'ютерів, а тепер сама пише код!"
+      "additionalComments": "Професійний педагог із чудовим ставленням до дітей та вмінням навчити складне простими словами."
     },
     {
-      "id": "mama-dmytro-2025",
-      "date": "2025-09-10",
+      "id": "mama-maria-2025",
+      "date": "2025-12-02",
       "parentType": "mom",
-      "childName": "Дмитро",
-      "childAge": 16,
-      "formatSatisfaction": "mostly_yes",
-      "formatComment": "Іноді хотілося б довші заняття",
-      "explanationQuality": "very_clear",
-      "favoritePart": "Робота з реальними технологіями, які використовують у справжніх компаніях",
-      "progressNoticed": "yes_want_more",
-      "duration": "2_to_3_years",
-      "additionalComments": "Син вже думає про кар'єру в IT. Дякуємо за мотивацію!"
-    },
-    {
-      "id": "tato-anna-2025",
-      "date": "2025-08-20",
-      "parentType": "dad",
-      "childName": "Анна",
-      "childAge": 13,
+      "childName": "учениці Марії",
+      "childAge": 15,
       "formatSatisfaction": "yes",
-      "formatComment": "Все продумано до дрібниць",
-      "explanationQuality": "clear",
-      "favoritePart": "Творчі завдання, можливість робити щось своє унікальне",
+      "formatComment": "Заняття двічі на тиждень, невеликі домашні завдання.",
+      "explanationQuality": "very_clear",
+      "favoritePart": "Дружня атмосфера, зрозумілі пояснення, власні практичні проекти",
       "progressNoticed": "yes_notable",
-      "duration": "less_6_months",
-      "additionalComments": "Тільки почали, але вже видно результат. Донька зацікавилась веб-дизайном."
+      "duration": "6_to_12_months",
+      "additionalComments": "Чудове менторство, донька зацікавлена, із задоволенням демонструє свої роботи, впевнена в своїх силах. Рекомендую!"
     }
   ]
 }

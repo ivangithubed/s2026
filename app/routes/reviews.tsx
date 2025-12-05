@@ -246,12 +246,12 @@ function ParentReviewCard({ review }: { review: ParentReview }) {
                     <Baby className="w-3 h-3" />
                     {review.childAge} років
                 </span>
-                <span className="inline-flex items-center gap-1 px-3 py-1 text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">
+                <span
+                    className="inline-flex items-center gap-1 px-3 py-1 text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full"
+                    title="Тривалість періоду занять на момент надання відгуку"
+                >
                     <Clock className="w-3 h-3" />
                     {getDurationLabel(review.duration)}
-                </span>
-                <span className="px-3 py-1 text-xs font-medium bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-400 rounded-full">
-                    👨‍👩‍👧 Батьки
                 </span>
             </div>
 
@@ -315,7 +315,7 @@ export default function ReviewsPage({ loaderData }: { loaderData: Awaited<Return
             )}
 
             {/* Відгуки батьків */}
-            {/* {parentReviews.length > 0 && (
+            {parentReviews.length > 0 && (
                 <div>
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
                         <span className="text-blue-500">👨‍👩‍👧</span> Відгуки батьків підлітків
@@ -326,7 +326,7 @@ export default function ReviewsPage({ loaderData }: { loaderData: Awaited<Return
                         ))}
                     </div>
                 </div>
-            )} */}
+            )}
 
             {reviews.length === 0 && parentReviews.length === 0 && (
                 <div className="text-center py-16">

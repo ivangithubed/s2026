@@ -99,7 +99,7 @@ export default function ParentSurveyPage() {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch('https://formspree.io/f/meoyzebj', {
+            const response = await fetch('https://formspree.io/f/mkgdbgqv', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -140,7 +140,7 @@ export default function ParentSurveyPage() {
                         Дякуємо за відповіді! 🎉
                     </h1>
                     <p className="text-gray-600 dark:text-gray-300 mb-8">
-                        Ваша думка дуже важлива для нас. Ми використаємо цю інформацію для покращення занять.
+                        Ваша думка дуже важлива для мене.
                     </p>
                     <a
                         href="/"

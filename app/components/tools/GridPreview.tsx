@@ -36,7 +36,7 @@ export function GridPreview({
                                 onColumnSizeClick(index, true);
                             }}
                             title="ЛКМ: +1fr | ПКМ: -1fr"
-                            className="px-3 md:px-4 lg:px-6 py-1.5 md:py-2 bg-slate-200 dark:bg-slate-700 text-gray-900 dark:text-white rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors min-w-12 md:min-w-15 lg:min-w-20 text-xs md:text-sm lg:text-base shrink-0"
+                            className="px-1.5 md:px-2 lg:px-3 py-1.5 md:py-2 bg-slate-200 dark:bg-slate-700 text-gray-900 dark:text-white rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors min-w-10 md:min-w-12 lg:min-w-14 text-xs md:text-sm lg:text-base shrink-0"
                         >
                             {size}
                         </button>
@@ -56,7 +56,7 @@ export function GridPreview({
                                     onRowSizeClick(index, true);
                                 }}
                                 title="ЛКМ: +1fr | ПКМ: -1fr"
-                                className="px-3 md:px-4 lg:px-6 py-1.5 md:py-2 bg-slate-200 dark:bg-slate-700 text-gray-900 dark:text-white rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors min-w-12 md:min-w-15 lg:min-w-20 text-xs md:text-sm lg:text-base shrink-0"
+                                className="px-1.5 md:px-2 lg:px-3 py-1.5 md:py-2 bg-slate-200 dark:bg-slate-700 text-gray-900 dark:text-white rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors min-w-10 md:min-w-12 lg:min-w-14 text-xs md:text-sm lg:text-base shrink-0"
                             >
                                 {size}
                             </button>

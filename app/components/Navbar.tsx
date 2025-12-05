@@ -46,9 +46,11 @@ export const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <div className="flex items-center gap-4">
-          {/* Theme Switcher and Social Icons */}
+          {/* Theme Switcher - visible on all screens */}
+          <ThemeSwitcher />
+
+          {/* Social Icons - desktop only */}
           <div className="hidden md:flex items-center gap-4">
-            <ThemeSwitcher />
             <a
               href="https://www.youtube.com/@itmentor"
               target="_blank"

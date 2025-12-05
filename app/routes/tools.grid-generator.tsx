@@ -35,8 +35,11 @@ export default function GridGeneratorPage() {
         const currentValue = parseInt(newSizes[index]) || 1;
         let nextValue: number;
         if (isRightClick) {
-            nextValue = currentValue <= 1 ? 4 : currentValue - 1;
+            // ПКМ: -1fr, але не менше 1
+            if (currentValue <= 1) return;
+            nextValue = currentValue - 1;
         } else {
+            // ЛКМ: +1fr, цикл на 4
             nextValue = currentValue >= 4 ? 1 : currentValue + 1;
         }
         newSizes[index] = `${nextValue}fr`;
@@ -48,8 +51,11 @@ export default function GridGeneratorPage() {
         const currentValue = parseInt(newSizes[index]) || 1;
         let nextValue: number;
         if (isRightClick) {
-            nextValue = currentValue <= 1 ? 4 : currentValue - 1;
+            // ПКМ: -1fr, але не менше 1
+            if (currentValue <= 1) return;
+            nextValue = currentValue - 1;
         } else {
+            // ЛКМ: +1fr, цикл на 4
             nextValue = currentValue >= 4 ? 1 : currentValue + 1;
         }
         newSizes[index] = `${nextValue}fr`;
@@ -73,7 +79,7 @@ export default function GridGeneratorPage() {
 
     return (
         <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+            <div className="flex flex-col xl:flex-row gap-6 xl:gap-8">
                 <GridControls
                     columns={columns}
                     rows={rows}

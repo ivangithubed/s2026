@@ -146,7 +146,10 @@ export default function ParentReviewDetailPage({ loaderData }: { loaderData: Awa
                                 <Baby className="w-4 h-4" />
                                 Дитині {review.childAge} років
                             </span>
-                            <span className="flex items-center gap-1">
+                            <span
+                                className="flex items-center gap-1"
+                                title="Тривалість періоду занять на момент надання відгуку"
+                            >
                                 <Clock className="w-4 h-4" />
                                 {getDurationLabel(review.duration)}
                             </span>

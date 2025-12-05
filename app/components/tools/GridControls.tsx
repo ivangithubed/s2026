@@ -1,3 +1,5 @@
+import { Columns3, Rows3, ArrowRightLeft, ArrowUpDown } from 'lucide-react';
+
 interface GridControlsProps {
     columns: number;
     rows: number;
@@ -22,44 +24,50 @@ export function GridControls({
     onGetCode,
 }: GridControlsProps) {
     return (
-        <div className="flex flex-col gap-6 lg:gap-8 w-full lg:w-auto">
+        <div className="flex flex-col gap-6 xl:gap-8 w-full xl:w-auto">
             <div>
-                <h1 className="text-lime-500 dark:text-lime-400 text-[28px] md:text-[32px] lg:text-[40px] font-bold leading-tight mb-4 lg:mb-8">
-                    CSS Grid<br />Генератор
+                <h1 className="text-lime-500 dark:text-lime-400 text-xl md:text-2xl xl:text-[40px] font-bold leading-tight mb-4 xl:mb-8">
+                    CSS Grid <span className="hidden xl:block"></span>Генератор
                 </h1>
             </div>
 
-            <div className="grid grid-cols-2 lg:flex lg:flex-col gap-3 md:gap-4 lg:gap-6">
+            <div className="grid grid-cols-2 xl:flex xl:flex-col gap-3 md:gap-4 xl:gap-6">
                 <ControlInput
                     label="Колонки"
+                    icon={<Columns3 className="w-4 h-4" />}
                     value={columns}
                     onChange={onColumnsChange}
                 />
 
                 <ControlInput
                     label="Рядки"
+                    icon={<Rows3 className="w-4 h-4" />}
                     value={rows}
                     onChange={onRowsChange}
                 />
 
                 <ControlInput
-                    label="Відступ колонок"
-                    sublabel="(px)"
+                    label="Відступ"
+                    icon={<ArrowRightLeft className="w-4 h-4" />}
+                    sublabel="px"
                     value={columnGap}
                     onChange={onColumnGapChange}
+                    title="Відступ між колонками"
                 />
 
                 <ControlInput
-                    label="Відступ рядків"
-                    sublabel="(px)"
+                    label="Відступ"
+                    icon={<ArrowUpDown className="w-4 h-4" />}
+                    sublabel="px"
                     value={rowGap}
                     onChange={onRowGapChange}
+                    title="Відступ між рядками"
                 />
             </div>
 
             <button
                 onClick={onGetCode}
-                className="mt-2 lg:mt-4 px-6 lg:px-8 py-2.5 lg:py-3 bg-transparent border-2 border-lime-500 dark:border-lime-400 text-lime-600 dark:text-lime-400 rounded-full hover:bg-lime-500 dark:hover:bg-lime-400 hover:text-white dark:hover:text-slate-900 transition-colors w-full lg:w-auto font-medium"
+                className="mt-2 xl:mt-4 px-6 xl:px-8 py-2.5 xl:py-3 bg-transparent border-2 border-lime-500 dark:border-lime-400 text-lime-600 dark:text-lime-400 rounded-full hover:bg-lime-500 dark:hover:bg-lime-400 hover:text-white dark:hover:text-slate-900 transition-colors w-full xl:w-auto font-medium"
             >
                 Отримати код
             </button>
@@ -69,12 +77,14 @@ export function GridControls({
 
 interface ControlInputProps {
     label: string;
+    icon?: React.ReactNode;
     sublabel?: string;
     value: number;
     onChange: (value: number) => void;
+    title?: string;
 }
 
-function ControlInput({ label, sublabel, value, onChange }: ControlInputProps) {
+function ControlInput({ label, icon, sublabel, value, onChange, title }: ControlInputProps) {
     const maxValue = label === 'Колонки' ? 12 : 20;
 
     const updateValue = (newValue: number) => {
@@ -103,10 +113,11 @@ function ControlInput({ label, sublabel, value, onChange }: ControlInputProps) {
     };
 
     return (
-        <div className="flex items-center justify-between lg:justify-start gap-4">
-            <label className="text-gray-900 dark:text-white lg:min-w-[140px] text-sm lg:text-base whitespace-nowrap">
+        <div className="flex items-center justify-between xl:justify-start gap-2 xl:gap-4" title={title}>
+            <label className="flex items-center gap-1.5 text-gray-900 dark:text-white xl:min-w-[140px] text-sm xl:text-base whitespace-nowrap">
+                {icon}
                 {label}
-                {sublabel && <span className="text-gray-500 dark:text-gray-400 ml-1 text-xs lg:text-sm">{sublabel}</span>}
+                {sublabel && <span className="text-gray-500 dark:text-gray-400 text-xs xl:text-sm">{sublabel}</span>}
             </label>
             <input
                 type="text"
@@ -120,7 +131,7 @@ function ControlInput({ label, sublabel, value, onChange }: ControlInputProps) {
                 onKeyDown={handleKeyDown}
                 onWheel={handleWheel}
                 title="Скрол або ↑↓ для зміни"
-                className="bg-white dark:bg-slate-800 text-gray-900 dark:text-white px-4 py-2 rounded-lg w-20 text-center border border-slate-300 dark:border-slate-600 focus:outline-none focus:border-lime-500 dark:focus:border-lime-400 text-base appearance-none"
+                className="bg-white dark:bg-slate-800 text-gray-900 dark:text-white px-2 md:px-3 xl:px-4 py-1.5 md:py-2 rounded-lg w-10 md:w-15 xl:w-20 text-center border border-slate-300 dark:border-slate-600 focus:outline-none focus:border-lime-500 dark:focus:border-lime-400 text-sm md:text-base appearance-none"
             />
         </div>
     );
