@@ -41,7 +41,7 @@ function CodePenEmbed({ penId, title }: { penId: string; title: string }) {
 // Компонент для блоку коду
 function CodeBlock({ children, language = 'css' }: { children: string; language?: string }) {
     return (
-        <pre className="my-4 p-4 bg-gray-900 text-gray-100 rounded-lg overflow-x-auto text-sm">
+        <pre className="my-4 p-4 bg-gray-100 dark:bg-gray-950 text-gray-800 dark:text-gray-100 rounded-lg overflow-x-auto text-sm border border-gray-200 dark:border-gray-700">
             <code className={`language-${language}`}>{children}</code>
         </pre>
     );
@@ -61,31 +61,67 @@ function Section({ id, title, children }: { id: string; title: string; children:
 }
 
 // Компонент підсекції
-function SubSection({ id, title, subtitle, children }: { id: string; title: string; subtitle?: string; children: React.ReactNode }) {
+function SubSection({ id, title, subtitle, children, number }: { id: string; title: string; subtitle?: string; children: React.ReactNode; number?: number }) {
     return (
-        <div id={id} className="py-8">
-            <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                <a href={`#${id}`} className="text-lime-500 hover:underline mr-2">#</a>
-                {title}
-            </h4>
-            {subtitle && (
-                <p className="text-lg text-gray-600 dark:text-gray-400 mb-4 italic">{subtitle}</p>
+        <div id={id} className="py-8 px-6 my-4 relative overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl bg-white/50 dark:bg-gray-900/50">
+            {/* Великий напівпрозорий номер праворуч */}
+            {number && (
+                <div className="absolute -right-4 top-0 text-[120px] md:text-[180px] font-bold text-lime-500/10 dark:text-lime-400/15 select-none pointer-events-none leading-none">
+                    {number.toString().padStart(2, '0')}
+                </div>
             )}
-            {children}
+            <div className="relative z-10">
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    <a href={`#${id}`} className="text-lime-500 hover:underline mr-2">#</a>
+                    {title}
+                </h4>
+                {subtitle && (
+                    <p className="text-lg text-gray-600 dark:text-gray-400 mb-4 italic">{subtitle}</p>
+                )}
+                {children}
+            </div>
         </div>
     );
 }
 
 export default function CSSWrapped2025() {
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900">
+        <div className="min-h-screen bg-linear-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900">
             {/* Hero Section */}
             <header className="relative py-20 px-4 text-center overflow-hidden">
+                {/* Decorative Clouds */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30 dark:opacity-20">
+                    <img
+                        src="/images/css-wrapped-2025/illustrations/01.png"
+                        alt=""
+                        className="absolute -top-10 -left-20 w-32 md:w-48 animate-pulse"
+                        style={{ animationDelay: '0s', animationDuration: '4s' }}
+                    />
+                    <img
+                        src="/images/css-wrapped-2025/illustrations/02.png"
+                        alt=""
+                        className="absolute top-20 -right-10 w-36 md:w-52 animate-pulse"
+                        style={{ animationDelay: '1s', animationDuration: '5s' }}
+                    />
+                    <img
+                        src="/images/css-wrapped-2025/illustrations/03.png"
+                        alt=""
+                        className="absolute bottom-10 left-1/4 w-28 md:w-40 animate-pulse"
+                        style={{ animationDelay: '2s', animationDuration: '6s' }}
+                    />
+                    <img
+                        src="/images/css-wrapped-2025/illustrations/04.png"
+                        alt=""
+                        className="absolute bottom-20 right-1/4 w-24 md:w-36 animate-pulse"
+                        style={{ animationDelay: '0.5s', animationDuration: '4.5s' }}
+                    />
+                </div>
+
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="max-w-4xl mx-auto"
+                    className="max-w-4xl mx-auto relative z-10"
                 >
                     {/* Disclaimer */}
                     <div className="mb-8 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg text-amber-800 dark:text-amber-200">
@@ -103,6 +139,13 @@ export default function CSSWrapped2025() {
                             Оригінальний контент належить Google/Chrome.
                         </p>
                     </div>
+
+                    {/* Logo */}
+                    <img
+                        src="/images/css-wrapped-2025/illustrations/Wrapped_Circle.png"
+                        alt="CSS Wrapped 2025"
+                        className="w-48 h-auto mx-auto mb-6"
+                    />
 
                     <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6">
                         CSS Wrapped <span className="text-lime-500">2025</span>
@@ -141,50 +184,81 @@ export default function CSSWrapped2025() {
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Зміст</h2>
 
                     <div className="grid md:grid-cols-3 gap-6">
-                        <div>
-                            <h3 className="font-semibold text-lime-600 dark:text-lime-400 mb-3">🧩 Кастомізовані компоненти</h3>
-                            <ul className="space-y-2 text-sm">
-                                <li><a href="#invoker-commands" className="hover:text-lime-600 dark:hover:text-lime-400">Invoker Commands</a></li>
-                                <li><a href="#dialog-light-dismiss" className="hover:text-lime-600 dark:hover:text-lime-400">Dialog Light Dismiss</a></li>
-                                <li><a href="#popover-hint" className="hover:text-lime-600 dark:hover:text-lime-400">popover=hint</a></li>
-                                <li><a href="#customizable-select" className="hover:text-lime-600 dark:hover:text-lime-400">Customizable select</a></li>
-                                <li><a href="#scroll-marker-button" className="hover:text-lime-600 dark:hover:text-lime-400">::scroll-marker/button()</a></li>
-                                <li><a href="#scroll-target-group" className="hover:text-lime-600 dark:hover:text-lime-400">scroll-target-group</a></li>
-                                <li><a href="#anchored-container-queries" className="hover:text-lime-600 dark:hover:text-lime-400">Anchored container queries</a></li>
-                                <li><a href="#interest-invokers" className="hover:text-lime-600 dark:hover:text-lime-400">Interest invokers</a></li>
-                            </ul>
+                        <div className="space-y-4">
+                            <a href="#customizable-components" className="block group">
+                                <img
+                                    src="/images/css-wrapped-2025/illustrations/components-robot.png"
+                                    alt="Глиняний робот"
+                                    className="w-24 h-24 object-contain mx-auto group-hover:scale-110 transition-transform"
+                                />
+                            </a>
+                            <h3 className="font-semibold text-lime-600 dark:text-lime-400 mb-3 text-center">🧩 Кастомізовані компоненти</h3>
+                            <ol className="space-y-2 text-sm list-none">
+                                <li><a href="#invoker-commands" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">01</span> Invoker Commands</a></li>
+                                <li><a href="#dialog-light-dismiss" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">02</span> Dialog Light Dismiss</a></li>
+                                <li><a href="#popover-hint" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">03</span> popover=hint</a></li>
+                                <li><a href="#customizable-select" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">04</span> Customizable select</a></li>
+                                <li><a href="#scroll-marker-button" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">05</span> ::scroll-marker/button()</a></li>
+                                <li><a href="#scroll-target-group" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">06</span> scroll-target-group</a></li>
+                                <li><a href="#anchored-container-queries" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">07</span> Anchored container queries</a></li>
+                                <li><a href="#interest-invokers" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">08</span> Interest invokers</a></li>
+                            </ol>
                         </div>
 
-                        <div>
-                            <h3 className="font-semibold text-lime-600 dark:text-lime-400 mb-3">⚡ Взаємодії нового покоління</h3>
-                            <ul className="space-y-2 text-sm">
-                                <li><a href="#scroll-state-queries" className="hover:text-lime-600 dark:hover:text-lime-400">Scroll-state queries</a></li>
-                                <li><a href="#tree-counting-functions" className="hover:text-lime-600 dark:hover:text-lime-400">Tree counting functions</a></li>
-                                <li><a href="#scrollintoview-container" className="hover:text-lime-600 dark:hover:text-lime-400">scrollIntoView() container</a></li>
-                                <li><a href="#nested-view-transition-groups" className="hover:text-lime-600 dark:hover:text-lime-400">Nested View Transition Groups</a></li>
-                                <li><a href="#dom-state-preserving-move" className="hover:text-lime-600 dark:hover:text-lime-400">DOM State-Preserving Move</a></li>
-                            </ul>
+                        <div className="space-y-4">
+                            <a href="#next-gen-interactions" className="block group">
+                                <img
+                                    src="/images/css-wrapped-2025/illustrations/interactions-car.png"
+                                    alt="Футуристичний автомобіль"
+                                    className="w-24 h-24 object-contain mx-auto group-hover:scale-110 transition-transform"
+                                />
+                            </a>
+                            <h3 className="font-semibold text-lime-600 dark:text-lime-400 mb-3 text-center">⚡ Взаємодії нового покоління</h3>
+                            <ol className="space-y-2 text-sm list-none">
+                                <li><a href="#scroll-state-queries" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">09</span> Scroll-state queries</a></li>
+                                <li><a href="#tree-counting-functions" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">10</span> Tree counting functions</a></li>
+                                <li><a href="#scrollintoview-container" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">11</span> scrollIntoView() container</a></li>
+                                <li><a href="#nested-view-transition-groups" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">12</span> Nested View Transition Groups</a></li>
+                                <li><a href="#dom-state-preserving-move" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">13</span> DOM State-Preserving Move</a></li>
+                            </ol>
                         </div>
 
-                        <div>
-                            <h3 className="font-semibold text-lime-600 dark:text-lime-400 mb-3">🛠️ Оптимізована ергономіка</h3>
-                            <ul className="space-y-2 text-sm">
-                                <li><a href="#advanced-attr-function" className="hover:text-lime-600 dark:hover:text-lime-400">Розширена функція attr()</a></li>
-                                <li><a href="#toggleevent-source" className="hover:text-lime-600 dark:hover:text-lime-400">ToggleEvent.source</a></li>
-                                <li><a href="#text-box-features" className="hover:text-lime-600 dark:hover:text-lime-400">text-box features</a></li>
-                                <li><a href="#shape-function" className="hover:text-lime-600 dark:hover:text-lime-400">Функція shape()</a></li>
-                                <li><a href="#if-statements" className="hover:text-lime-600 dark:hover:text-lime-400">if() statements</a></li>
-                                <li><a href="#custom-functions" className="hover:text-lime-600 dark:hover:text-lime-400">Custom Functions</a></li>
-                                <li><a href="#expanded-range-syntax" className="hover:text-lime-600 dark:hover:text-lime-400">Expanded range syntax</a></li>
-                                <li><a href="#stretch-sizing-keyword" className="hover:text-lime-600 dark:hover:text-lime-400">Stretch sizing keyword</a></li>
-                                <li><a href="#corner-shape" className="hover:text-lime-600 dark:hover:text-lime-400">corner-shape</a></li>
-                            </ul>
+                        <div className="space-y-4">
+                            <a href="#optimized-ergonomics" className="block group">
+                                <img
+                                    src="/images/css-wrapped-2025/illustrations/ergonomics-chair.png"
+                                    alt="Ергономічне крісло"
+                                    className="w-24 h-24 object-contain mx-auto group-hover:scale-110 transition-transform"
+                                    style={{ transform: 'rotateY(180deg)' }}
+                                />
+                            </a>
+                            <h3 className="font-semibold text-lime-600 dark:text-lime-400 mb-3 text-center">🛠️ Оптимізована ергономіка</h3>
+                            <ol className="space-y-2 text-sm list-none">
+                                <li><a href="#advanced-attr-function" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">14</span> Розширена функція attr()</a></li>
+                                <li><a href="#toggleevent-source" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">15</span> ToggleEvent.source</a></li>
+                                <li><a href="#text-box-features" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">16</span> text-box features</a></li>
+                                <li><a href="#shape-function" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">17</span> Функція shape()</a></li>
+                                <li><a href="#if-statements" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">18</span> if() statements</a></li>
+                                <li><a href="#custom-functions" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">19</span> Custom Functions</a></li>
+                                <li><a href="#expanded-range-syntax" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">20</span> Expanded range syntax</a></li>
+                                <li><a href="#stretch-sizing-keyword" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">21</span> Stretch sizing keyword</a></li>
+                                <li><a href="#corner-shape" className="hover:text-lime-600 dark:hover:text-lime-400 flex gap-2"><span className="text-lime-500 font-mono">22</span> corner-shape</a></li>
+                            </ol>
                         </div>
                     </div>
                 </nav>
 
                 {/* Section 1: Customizable Components */}
                 <Section id="customizable-components" title="🧩 Кастомізовані компоненти">
+                    {/* Section Header Image */}
+                    <div className="mb-8 rounded-xl overflow-hidden">
+                        <img
+                            src="/images/css-wrapped-2025/illustrations/components-header.jpg"
+                            alt="Монстр-майстер працює над роботом у своїй майстерні"
+                            className="w-full h-64 object-cover"
+                        />
+                    </div>
+
                     <p className="text-gray-700 dark:text-gray-300 mb-8">
                         Цього року було спекотно в майстерні. Ми взяли десятилітню проблему стилізації випадаючих списків
                         і довели її до досконалості. Також ми випустили нові базові блоки, такі як нативне anchor positioning
@@ -196,6 +270,7 @@ export default function CSSWrapped2025() {
                         id="invoker-commands"
                         title="Invoker Commands"
                         subtitle="Показуйте <dialog> модально (і не тільки) без JavaScript!"
+                        number={1}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/pvyVyYK" icon={Play}>Демо</ResourceLink>
@@ -250,9 +325,11 @@ export default function CSSWrapped2025() {
   }
 });`}</CodeBlock>
 
-                        <p className="text-gray-700 dark:text-gray-300">
+                        <p className="text-gray-700 dark:text-gray-300 mb-4">
                             Доступний <ResourceLink href="https://github.com/keithamus/invokers-polyfill">поліфіл для Invoker Commands</ResourceLink>.
                         </p>
+
+                        <CodePenEmbed penId="pvyVyYK" title="Invoker Commands" />
                     </SubSection>
 
                     {/* Dialog Light Dismiss */}
@@ -260,6 +337,7 @@ export default function CSSWrapped2025() {
                         id="dialog-light-dismiss"
                         title="Dialog Light Dismiss"
                         subtitle="Приємна функція Popover API тепер доступна для <dialog>."
+                        number={2}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/PwNeNLp" icon={Play}>Демо</ResourceLink>
@@ -282,6 +360,8 @@ export default function CSSWrapped2025() {
                             <li><code>&lt;dialog closedby="closerequest"&gt;</code>: Натискання ESC (або інший тригер закриття) закриває діалог</li>
                             <li><code>&lt;dialog closedby="any"&gt;</code>: Клік поза діалогом або натискання ESC закриває діалог. Подібно до поведінки <code>popover="auto"</code>.</li>
                         </ul>
+
+                        <CodePenEmbed penId="PwNeNLp" title="Dialog Light Dismiss" />
                     </SubSection>
 
                     {/* popover=hint */}
@@ -289,6 +369,7 @@ export default function CSSWrapped2025() {
                         id="popover-hint"
                         title='popover="hint"'
                         subtitle="Ефемерні попавери, які не закривають інші."
+                        number={3}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/PwNJNLg" icon={Play}>Демо</ResourceLink>
@@ -307,11 +388,28 @@ export default function CSSWrapped2025() {
   Інформація про продукт тут.
 </div>`}</CodeBlock>
 
-                        <p className="text-gray-700 dark:text-gray-300">
+                        <p className="text-gray-700 dark:text-gray-300 mb-4">
                             Використання <code>popover="hint"</code> разом з <a href="#interest-invokers" className="text-lime-600 dark:text-lime-400 hover:underline">interest invokers</a> (атрибут <code>[interestfor]</code>)
                             значно спрощує створення шаруватих UI-елементів, таких як підказки, hover-картки та попередній перегляд
                             декларативно в HTML та CSS, без складних JavaScript-обхідних шляхів.
                         </p>
+
+                        <figure className="my-6">
+                            <video
+                                src="/images/css-wrapped-2025/videos/popover-hint.mp4"
+                                controls
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                                className="w-full rounded-lg"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Демо popover="hint" з interest invokers для відображення інформації про продукт.
+                            </figcaption>
+                        </figure>
+
+                        <CodePenEmbed penId="PwNJNLg" title="Popover hint & interest invokers" />
                     </SubSection>
 
                     {/* Customizable select */}
@@ -319,6 +417,7 @@ export default function CSSWrapped2025() {
                         id="customizable-select"
                         title="Customizable select"
                         subtitle="Нарешті можна стилізувати HTML select елементи за допомогою CSS."
+                        number={4}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/JoXrKoL" icon={Play}>Демо</ResourceLink>
@@ -346,10 +445,34 @@ export default function CSSWrapped2025() {
                             Кожна частина select-елемента, включаючи кнопку, випадаючий список та опції, може бути стилізована за допомогою CSS.
                         </p>
 
+                        {/* Діаграма customizable select */}
+                        <img
+                            src="/images/css-wrapped-2025/illustrations/clay-select.png"
+                            alt="Діаграма customizable select з різними новими частинами"
+                            className="w-full max-w-2xl mx-auto my-6 rounded-lg"
+                        />
+
                         <p className="text-gray-700 dark:text-gray-300 mb-4">
                             Новий select також дозволяє включати та правильно рендерити HTML-елементи, такі як <code>&lt;img&gt;</code>
                             та <code>&lt;span&gt;</code>, прямо всередині <code>&lt;option&gt;</code> елементів.
                         </p>
+
+                        <figure className="my-6">
+                            <video
+                                src="/images/css-wrapped-2025/videos/select.mp4"
+                                controls
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                                className="w-full rounded-lg"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Демо customizable select з іконками та багатим контентом всередині опцій.
+                            </figcaption>
+                        </figure>
+
+                        <CodePenEmbed penId="JoXrKoL" title="Customizable select" />
 
                         <div className="flex flex-wrap gap-3">
                             <ResourceLink href="https://codepen.io/collection/BNZjPe" icon={Code2}>Колекція демо на CodePen</ResourceLink>
@@ -362,6 +485,7 @@ export default function CSSWrapped2025() {
                         id="scroll-marker-button"
                         title="::scroll-marker/button()"
                         subtitle="Карусельні scroll-афорданси з нативними CSS псевдо-елементами."
+                        number={5}
                     >
                         <p className="text-gray-700 dark:text-gray-300 mb-4">
                             Цього року створення каруселей та інших scroll-досвідів у CSS стало набагато простішим
@@ -411,6 +535,28 @@ export default function CSSWrapped2025() {
 .carousel > li::scroll-marker:target-current {
   background: black;
 }`}</CodeBlock>
+
+                        {/* Ілюстрації каруселі */}
+                        <div className="grid md:grid-cols-2 gap-4 my-6">
+                            <div>
+                                <img
+                                    src="/images/css-wrapped-2025/illustrations/carousel-buttons.png"
+                                    alt="Карусель з кнопками прокрутки"
+                                    className="w-full rounded-lg"
+                                />
+                                <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">::scroll-button()</p>
+                            </div>
+                            <div>
+                                <img
+                                    src="/images/css-wrapped-2025/illustrations/carousel-markers.png"
+                                    alt="Карусель з маркерами позиції"
+                                    className="w-full rounded-lg"
+                                />
+                                <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">::scroll-marker</p>
+                            </div>
+                        </div>
+
+                        <CodePenEmbed penId="MYWVVYN" title="CSS Carousel - Template Starter" />
                     </SubSection>
 
                     {/* scroll-target-group */}
@@ -418,6 +564,7 @@ export default function CSSWrapped2025() {
                         id="scroll-target-group"
                         title="scroll-target-group"
                         subtitle="Перетворіть список anchor-посилань на з'єднані scroll-маркери."
+                        number={6}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/azNjGpv" icon={Play}>Демо</ResourceLink>
@@ -465,6 +612,7 @@ export default function CSSWrapped2025() {
                         id="anchored-container-queries"
                         title="Anchored container queries"
                         subtitle="Стилізуйте елементи на основі їхньої anchor-позиції."
+                        number={7}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/jEWKRRv" icon={Play}>Демо</ResourceLink>
@@ -508,10 +656,27 @@ export default function CSSWrapped2025() {
   }
 }`}</CodeBlock>
 
-                        <p className="text-gray-700 dark:text-gray-300">
+                        <p className="text-gray-700 dark:text-gray-300 mb-4">
                             Це величезна перемога для anchor positioning та бібліотек компонентів, що дозволяє створювати
                             більш надійні та самодостатні UI-елементи з меншим кодом.
                         </p>
+
+                        <figure className="my-6">
+                            <video
+                                src="/images/css-wrapped-2025/videos/anchored-cq.mp4"
+                                controls
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                                className="w-full rounded-lg"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Демо anchored container queries: стрілка tooltip автоматично перевертається при зміні позиції.
+                            </figcaption>
+                        </figure>
+
+                        <CodePenEmbed penId="jEWKRRv" title="Anchored Container Queries Demo" />
                     </SubSection>
 
                     {/* Interest invokers */}
@@ -519,6 +684,7 @@ export default function CSSWrapped2025() {
                         id="interest-invokers"
                         title="Interest invokers"
                         subtitle="Декларативний UI, що активується інтересом, з interestfor."
+                        number={8}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/VYaWyoQ" icon={Play}>Демо</ResourceLink>
@@ -547,6 +713,21 @@ export default function CSSWrapped2025() {
                             interest invokers можуть бути встановлені на посиланнях (<code>&lt;a&gt;</code>) так само як і на кнопках.
                         </p>
 
+                        <figure className="my-6">
+                            <video
+                                src="/images/css-wrapped-2025/videos/interest-invokers.mp4"
+                                controls
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                                className="w-full rounded-lg"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Демо interest invokers: наведення на кнопки показує інформацію про продукт.
+                            </figcaption>
+                        </figure>
+
                         <h5 className="text-lg font-semibold text-gray-900 dark:text-white mt-6 mb-3">Interest Delays</h5>
 
                         <p className="text-gray-700 dark:text-gray-300 mb-4">
@@ -560,6 +741,8 @@ export default function CSSWrapped2025() {
   interest-delay: 0.2s;
 }`}</CodeBlock>
 
+                        <CodePenEmbed penId="VYaWyoQ" title="Interest invokers with product callouts" />
+
                         <div className="flex flex-wrap gap-3">
                             <ResourceLink href="https://open-ui.org/components/interest-invokers.explainer/" icon={Book}>Open UI explainer</ResourceLink>
                             <ResourceLink href="https://github.com/mfreed7/interestfor" icon={Code2}>Поліфіл interestfor</ResourceLink>
@@ -569,6 +752,15 @@ export default function CSSWrapped2025() {
 
                 {/* Section 2: Next-gen Interactions */}
                 <Section id="next-gen-interactions" title="⚡ Взаємодії нового покоління">
+                    {/* Section Header Image */}
+                    <div className="mb-8 rounded-xl overflow-hidden">
+                        <img
+                            src="/images/css-wrapped-2025/illustrations/interactions-header.jpg"
+                            alt="Футуристичний автомобіль на дорозі майбутнього"
+                            className="w-full h-64 object-cover"
+                        />
+                    </div>
+
                     <p className="text-gray-700 dark:text-gray-300 mb-8">
                         З цим новим інструментарієм взаємодій ви тепер можете анімувати переходи між сторінками
                         за допомогою view transitions та створювати чудові scroll-based досвіди.
@@ -579,6 +771,7 @@ export default function CSSWrapped2025() {
                         id="scroll-state-queries"
                         title="Scroll-state queries"
                         subtitle="Стилізуйте нащадків залежно від того, чи є щось scrollable, stuck або snapped."
+                        number={9}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/XJrqpBG" icon={Play}>Демо</ResourceLink>
@@ -629,6 +822,24 @@ export default function CSSWrapped2025() {
     }
   }
 }`}</CodeBlock>
+
+                        <figure className="my-6">
+                            <video
+                                src="/images/css-wrapped-2025/videos/scroll-state-container-queries.mp4"
+                                controls
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                                className="w-full rounded-lg"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Демо scroll-state queries: елементи змінюють прозорість залежно від snapped стану.
+                            </figcaption>
+                        </figure>
+
+                        <CodePenEmbed penId="RNaBypZ" title="Trip Overview Carousel with scroll-state queries" />
+                        <CodePenEmbed penId="XJrqpBG" title="Scroll-state snapped triggered captions" />
                     </SubSection>
 
                     {/* Tree counting functions */}
@@ -636,6 +847,7 @@ export default function CSSWrapped2025() {
                         id="tree-counting-functions"
                         title="Tree counting functions"
                         subtitle="Поступові анімації, хтось?"
+                        number={10}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/vEGjGwG" icon={Play}>Демо</ResourceLink>
@@ -666,6 +878,23 @@ export default function CSSWrapped2025() {
     translate: 1em 0;
   }
 }`}</CodeBlock>
+
+                        <figure className="my-6">
+                            <video
+                                src="/images/css-wrapped-2025/videos/sibling-index.mp4"
+                                controls
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                                className="w-full rounded-lg"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Демо sibling-index(): поступова анімація появи елементів списку.
+                            </figcaption>
+                        </figure>
+
+                        <CodePenEmbed penId="vEGjGwG" title="CSS sibling-count() and sibling-index()" />
                     </SubSection>
 
                     {/* scrollIntoView() container */}
@@ -673,6 +902,7 @@ export default function CSSWrapped2025() {
                         id="scrollintoview-container"
                         title="scrollIntoView() container"
                         subtitle="Іноді прокрутка лише найближчого ancestor scroller — це все, що вам потрібно."
+                        number={11}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/emZrZoQ" icon={Play}>Демо</ResourceLink>
@@ -689,6 +919,23 @@ export default function CSSWrapped2025() {
   // scrollIntoView автоматично визначить позицію.
   evt.target.targetSlide.scrollIntoView({container: 'nearest', behavior: 'smooth'});
 });`}</CodeBlock>
+
+                        <figure className="my-6">
+                            <video
+                                src="/images/css-wrapped-2025/videos/scrollintoview-container-nearest.mp4"
+                                controls
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                                className="w-full rounded-lg"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Демо scrollIntoView з опцією container: 'nearest' для вкладених scroll-контейнерів.
+                            </figcaption>
+                        </figure>
+
+                        <CodePenEmbed penId="emZrZoQ" title="scrollIntoView Nearest" />
                     </SubSection>
 
                     {/* Nested View Transition Groups */}
@@ -696,6 +943,7 @@ export default function CSSWrapped2025() {
                         id="nested-view-transition-groups"
                         title="Nested View Transition Groups"
                         subtitle="Зберігайте 3D та clipping ефекти під час view transition."
+                        number={12}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/wBMvxdz" icon={Play}>Демо</ResourceLink>
@@ -725,6 +973,27 @@ export default function CSSWrapped2025() {
 ::view-transition-group-children(card) {
   overflow: clip;
 }`}</CodeBlock>
+
+                        <p className="text-gray-700 dark:text-gray-300 my-4">
+                            Для браузерів без підтримки, перегляньте цей запис:
+                        </p>
+
+                        <figure className="my-6">
+                            <video
+                                src="/images/css-wrapped-2025/videos/nested-view-transition-groups.mp4"
+                                controls
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                                className="w-full rounded-lg"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Демо nested view transition groups: 3D-ефект зберігається під час переходу.
+                            </figcaption>
+                        </figure>
+
+                        <CodePenEmbed penId="wBMvxdz" title="Nested View Transition Groups" />
                     </SubSection>
 
                     {/* DOM State-Preserving Move */}
@@ -732,6 +1001,7 @@ export default function CSSWrapped2025() {
                         id="dom-state-preserving-move"
                         title="DOM State-Preserving Move"
                         subtitle="Переміщуйте iframe та відео по DOM без їх перезавантаження."
+                        number={13}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/QwNrNPQ" icon={Play}>Демо</ResourceLink>
@@ -754,15 +1024,41 @@ export default function CSSWrapped2025() {
 const $iframe = document.querySelector('iframe');
 document.body.moveBefore($iframe, $newSibling);`}</CodeBlock>
 
-                        <p className="text-gray-700 dark:text-gray-300">
+                        <p className="text-gray-700 dark:text-gray-300 mb-4">
                             Це означає, що відео продовжують грати, iframe'и не перезавантажуються, CSS-анімації не перезапускаються,
                             а поля введення зберігають фокус — навіть коли ви активно reparent-ите їх по вашому layout.
                         </p>
+
+                        <figure className="my-6">
+                            <video
+                                src="/images/css-wrapped-2025/videos/dom-state-preserving-move.mp4"
+                                controls
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                                className="w-full rounded-lg"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Порівняння поведінки insertBefore та moveBefore: відео продовжує грати.
+                            </figcaption>
+                        </figure>
+
+                        <CodePenEmbed penId="QwNrNPQ" title="DOM State-Preserving Move (moveBefore)" />
                     </SubSection>
                 </Section>
 
                 {/* Section 3: Optimized Ergonomics */}
                 <Section id="optimized-ergonomics" title="🛠️ Оптимізована ергономіка">
+                    {/* Section Header Image */}
+                    <div className="mb-8 rounded-xl overflow-hidden">
+                        <img
+                            src="/images/css-wrapped-2025/illustrations/ergonomics-header.jpg"
+                            alt="Ергономічний глиняний стілець"
+                            className="w-full h-64 object-cover"
+                        />
+                    </div>
+
                     <p className="text-gray-700 dark:text-gray-300 mb-8">
                         Ці модулі — не просто plug-and-play; вони справжні хамелеони, що дозволяють користувачам
                         перевизначати інтерфейс, функціональність та естетику аж до атомарного рівня.
@@ -773,6 +1069,7 @@ document.body.moveBefore($iframe, $newSibling);`}</CodeBlock>
                         id="advanced-attr-function"
                         title="Розширена функція attr()"
                         subtitle="Типізовані значення для attr() за межами простих рядків."
+                        number={14}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/emZRyaZ" icon={Play}>Демо</ResourceLink>
@@ -810,6 +1107,15 @@ document.body.moveBefore($iframe, $newSibling);`}</CodeBlock>
     content: attr(data-rating);
   }
 }`}</CodeBlock>
+
+                        {/* Демо-ілюстрація attr() */}
+                        <img
+                            src="/images/css-wrapped-2025/illustrations/attr-demo.png"
+                            alt="Демонстрація функції attr() з рейтингом зірок"
+                            className="w-full max-w-lg mx-auto my-6 rounded-lg"
+                        />
+
+                        <CodePenEmbed penId="emZRyaZ" title="attr() star rating demo" />
                     </SubSection>
 
                     {/* ToggleEvent.source */}
@@ -817,6 +1123,7 @@ document.body.moveBefore($iframe, $newSibling);`}</CodeBlock>
                         id="toggleevent-source"
                         title="ToggleEvent.source"
                         subtitle="Дізнайтеся, який елемент був відповідальним за toggle цільового елемента."
+                        number={15}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/VYaxaNv" icon={Play}>Демо</ResourceLink>
@@ -843,6 +1150,8 @@ document.body.moveBefore($iframe, $newSibling);`}</CodeBlock>
     // Не давати користувачу cookie
   }
 });`}</CodeBlock>
+
+                        <CodePenEmbed penId="VYaxaNv" title="ToggleEvent.source" />
                     </SubSection>
 
                     {/* text-box features */}
@@ -850,6 +1159,7 @@ document.body.moveBefore($iframe, $newSibling);`}</CodeBlock>
                         id="text-box-features"
                         title="text-box features"
                         subtitle="Бездоганно центруйте текст вертикально."
+                        number={16}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/RNbyooE" icon={Play}>Демо</ResourceLink>
@@ -862,11 +1172,41 @@ document.body.moveBefore($iframe, $newSibling);`}</CodeBlock>
                             які резервують простір для акцентів та висячих символів.
                         </p>
 
+                        <figure className="my-6">
+                            <img
+                                src="/images/css-wrapped-2025/illustrations/text-box-1.png"
+                                alt="Ілюстрація, що показує лінії ascender та descender шрифту"
+                                className="w-full rounded-lg"
+                                loading="lazy"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Ілюстрація, що показує лінії ascender та descender шрифту. (Джерело: <a href="https://m2.material.io/design/typography/understanding-typography.html" target="_blank" rel="noopener noreferrer" className="text-lime-600 hover:underline">Material Design</a>)
+                            </figcaption>
+                        </figure>
+
                         <p className="text-gray-700 dark:text-gray-300 mb-4">
                             Оскільки візуальні межі латинського тексту — це cap height та alphabetic baseline,
                             а не ascent та descent, текст виглядатиме оптично зміщеним від центру, навіть коли він
                             математично центрований всередині контейнера.
                         </p>
+
+                        <figure className="my-6">
+                            <img
+                                src="/images/css-wrapped-2025/illustrations/text-box-2.png"
+                                alt="Ілюстрація, що показує cap height шрифту"
+                                className="w-full rounded-lg mb-2"
+                                loading="lazy"
+                            />
+                            <img
+                                src="/images/css-wrapped-2025/illustrations/text-box-3.png"
+                                alt="Ілюстрація, що показує baseline шрифту"
+                                className="w-full rounded-lg"
+                                loading="lazy"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Ілюстрації cap height та baseline шрифту. (Джерело: <a href="https://m2.material.io/design/typography/understanding-typography.html" target="_blank" rel="noopener noreferrer" className="text-lime-600 hover:underline">Material Design</a>)
+                            </figcaption>
+                        </figure>
 
                         <p className="text-gray-700 dark:text-gray-300 mb-4">
                             Властивості <code>text-box</code> роблять можливим тонший контроль вертикального вирівнювання тексту,
@@ -876,6 +1216,8 @@ document.body.moveBefore($iframe, $newSibling);`}</CodeBlock>
                         <CodeBlock language="css">{`h1, button {
   text-box: trim-both cap alphabetic;
 }`}</CodeBlock>
+
+                        <CodePenEmbed penId="RNbyooE" title="Interactive CSS text-box" />
                     </SubSection>
 
                     {/* shape() function */}
@@ -883,6 +1225,7 @@ document.body.moveBefore($iframe, $newSibling);`}</CodeBlock>
                         id="shape-function"
                         title="Функція shape()"
                         subtitle="CSS-функція для складних, адаптивних форм."
+                        number={17}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/xbVXOdJ" icon={Play}>Демо</ResourceLink>
@@ -896,6 +1239,18 @@ document.body.moveBefore($iframe, $newSibling);`}</CodeBlock>
                             і безшовно працює з CSS custom properties для визначення координат та контрольних точок.
                         </p>
 
+                        <figure className="my-6">
+                            <img
+                                src="/images/css-wrapped-2025/illustrations/shape-1.png"
+                                alt="Приклад форми прапору, створеної за допомогою shape()"
+                                className="w-full max-w-xl mx-auto rounded-lg"
+                                loading="lazy"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Приклад форми прапору, створеної за допомогою shape().
+                            </figcaption>
+                        </figure>
+
                         <CodeBlock language="css">{`.flag {
   clip-path: shape(from 0% 20px,
     curve to 100% 20px with 25% 0% / 75% 40px,
@@ -905,6 +1260,33 @@ document.body.moveBefore($iframe, $newSibling);`}</CodeBlock>
     close
   );
 }`}</CodeBlock>
+
+                        <p className="text-gray-700 dark:text-gray-300 my-4">
+                            У цьому прикладі горизонтальні координати використовують відсотки для масштабування
+                            з шириною елемента, а вертикальні координати для висоти кривої використовують фіксовані
+                            значення в пікселях, створюючи адаптивний ефект, де хвиля прапора залишається сталою
+                            незалежно від розміру елемента.
+                        </p>
+
+                        <p className="text-gray-700 dark:text-gray-300 mb-4">
+                            Ще один приклад використовує <a href="https://css-generators.com/blob/" target="_blank" rel="noopener noreferrer" className="text-lime-600 hover:underline">blob generator</a> для <code>shape()</code>,
+                            щоб створити цікавий ефект рамки:
+                        </p>
+
+                        <figure className="my-6">
+                            <img
+                                src="/images/css-wrapped-2025/illustrations/shape-2.png"
+                                alt="Приклад blob-форми, створеної за допомогою shape()"
+                                className="w-full max-w-xl mx-auto rounded-lg"
+                                loading="lazy"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Приклад blob-форми для ефекту рамки.
+                            </figcaption>
+                        </figure>
+
+                        <CodePenEmbed penId="xbVXOdJ" title="shape() flag demo" />
+                        <CodePenEmbed penId="pvyWbRe" title="shape() blob demo" />
                     </SubSection>
 
                     {/* if() statements */}
@@ -912,6 +1294,7 @@ document.body.moveBefore($iframe, $newSibling);`}</CodeBlock>
                         id="if-statements"
                         title="if() statements"
                         subtitle="Умовні оператори у вашому CSS для динамічної стилізації."
+                        number={18}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/KwzXMXW" icon={Play}>Демо</ResourceLink>
@@ -941,6 +1324,8 @@ document.body.moveBefore($iframe, $newSibling);`}</CodeBlock>
   display: flex;
   flex-direction: if(media(orientation: landscape): row; else: column);
 }`}</CodeBlock>
+
+                        <CodePenEmbed penId="KwzXMXW" title="Monster gallery with if()" />
                     </SubSection>
 
                     {/* Custom Functions */}
@@ -948,6 +1333,7 @@ document.body.moveBefore($iframe, $newSibling);`}</CodeBlock>
                         id="custom-functions"
                         title="Custom Functions"
                         subtitle="Перевикористовувані функції для чистіших, підтримуваних стилів."
+                        number={19}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/ogxGLOr" icon={Play}>Демо</ResourceLink>
@@ -979,6 +1365,29 @@ html {
 .box {
   border-radius: --conditional-radius(1rem);
 }`}</CodeBlock>
+
+                        <p className="text-gray-700 dark:text-gray-300 my-4">
+                            Одна з моїх улюблених CSS-функцій — це умовно заокруглений border-radius.
+                            Функція прибирає <code>border-radius</code> елемента, коли він опиняється
+                            на відстані менше заданої від краю viewport:
+                        </p>
+
+                        <figure className="my-6">
+                            <video
+                                src="/images/css-wrapped-2025/videos/function.mp4"
+                                controls
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                                className="w-full rounded-lg"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Демо умовного border-radius: заокруглення зникає біля краю екрану.
+                            </figcaption>
+                        </figure>
+
+                        <CodePenEmbed penId="ogxGLOr" title="CSS Custom functions: conditional radius" />
                     </SubSection>
 
                     {/* Expanded range syntax */}
@@ -986,6 +1395,7 @@ html {
                         id="expanded-range-syntax"
                         title="Expanded range syntax"
                         subtitle="Синтаксис діапазонів у style queries та if() statements."
+                        number={20}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/bNpoBbx" icon={Play}>Демо</ResourceLink>
@@ -1013,6 +1423,24 @@ html {
     background: linear-gradient(140deg, blue, lightblue);
   }
 }`}</CodeBlock>
+
+                        <p className="text-gray-700 dark:text-gray-300 my-4">
+                            Тепер, якщо шанс дощу більший за 45%, картка отримає синій фон.
+                        </p>
+
+                        <figure className="my-6">
+                            <img
+                                src="/images/css-wrapped-2025/illustrations/weather-cards.png"
+                                alt="Картки погоди з різними кольорами фону та іконками залежно від погоди та ймовірності дощу"
+                                className="w-full max-w-2xl mx-auto rounded-lg"
+                                loading="lazy"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Картки погоди з різними кольорами фону залежно від ймовірності дощу.
+                            </figcaption>
+                        </figure>
+
+                        <CodePenEmbed penId="bNpoBbx" title="Range style queries" />
                     </SubSection>
 
                     {/* Stretch sizing keyword */}
@@ -1020,6 +1448,7 @@ html {
                         id="stretch-sizing-keyword"
                         title="Stretch sizing keyword"
                         subtitle="Зробіть елемент таким, щоб він заповнював свій containing block, незалежно від box-sizing."
+                        number={21}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/qEZYZwW" icon={Play}>Демо</ResourceLink>
@@ -1040,6 +1469,8 @@ html {
                         <CodeBlock language="css">{`.element {
   height: stretch;
 }`}</CodeBlock>
+
+                        <CodePenEmbed penId="qEZYZwW" title="CSS stretch keyword" />
                     </SubSection>
 
                     {/* corner-shape */}
@@ -1047,6 +1478,7 @@ html {
                         id="corner-shape"
                         title="corner-shape"
                         subtitle="Форми кутів за межами заокруглених країв."
+                        number={22}
                     >
                         <div className="flex flex-wrap gap-3 mb-4">
                             <ResourceLink href="https://codepen.io/web-dot-dev/pen/OPNzoqW" icon={Play}>Демо</ResourceLink>
@@ -1071,11 +1503,38 @@ html {
                             <li><code>squircle</code> — суперекліпс</li>
                         </ul>
 
+                        <figure className="my-6">
+                            <video
+                                src="/images/css-wrapped-2025/videos/corner-shape.mp4"
+                                controls
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                                className="w-full rounded-lg"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                Демо різних стилів corner-shape: round, bevel, notch, scoop, squircle.
+                            </figcaption>
+                        </figure>
+
                         <CodeBlock language="css">{`.top-left-petal {
   grid-area: 1 / 1 / 3 / 3;
   corner-shape: round round scoop;
   border-radius: 50%;
 }`}</CodeBlock>
+
+                        <figure className="my-6">
+                            <img
+                                src="/images/css-wrapped-2025/illustrations/corner-shape.png"
+                                alt="CSS квітка, створена за допомогою властивості corner-shape"
+                                className="w-full max-w-sm mx-auto rounded-lg"
+                                loading="lazy"
+                            />
+                            <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                CSS квітка, створена за допомогою властивості corner-shape.
+                            </figcaption>
+                        </figure>
 
                         <p className="text-gray-700 dark:text-gray-300 mb-4">
                             Для ще більшого контролю ви можете використовувати функцію <code>superellipse()</code>
@@ -1086,11 +1545,14 @@ html {
                             <ResourceLink href="https://codepen.io/collection/bGBzdV" icon={Code2}>#CodePenChallenge: CSS Shape</ResourceLink>
                             <ResourceLink href="https://frontendmasters.com/blog/understanding-css-corner-shape-and-the-power-of-the-superellipse/" icon={Book}>Understanding CSS corner-shape</ResourceLink>
                         </div>
+
+                        <CodePenEmbed penId="OPNzoqW" title="Simple corner-shape visualizer" />
+                        <CodePenEmbed penId="jEqYvJY" title="Corner-shape flower" />
                     </SubSection>
                 </Section>
 
                 {/* Baseline Updates */}
-                <div className="py-12 px-4 bg-gradient-to-r from-lime-50 to-emerald-50 dark:from-lime-950/20 dark:to-emerald-950/20 rounded-xl my-8">
+                <div className="py-12 px-4 bg-linear-to-r from-lime-50 to-emerald-50 dark:from-lime-950/20 dark:to-emerald-950/20 rounded-xl my-8">
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center">
                         📊 Оновлення Baseline у 2025
                     </h3>
@@ -1121,7 +1583,36 @@ html {
             </div>
 
             {/* Footer */}
-            <footer className="py-12 px-4 bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+            <footer className="py-12 px-4 bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 relative overflow-hidden">
+                {/* Authors Section */}
+                <div className="max-w-4xl mx-auto mb-8">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-center mb-6">
+                        Автори оригіналу
+                    </h3>
+                    <div className="flex flex-wrap justify-center gap-6">
+                        <a href="https://una.im" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+                            <img src="/images/css-wrapped-2025/illustrations/una.jpg" alt="Una Kravets" className="w-16 h-16 rounded-full mb-2 border-2 border-transparent group-hover:border-lime-500 transition-colors" loading="lazy" />
+                            <span className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-lime-600">Una Kravets</span>
+                        </a>
+                        <a href="https://bram.us" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+                            <img src="/images/css-wrapped-2025/illustrations/bramus.jpg" alt="Bramus" className="w-16 h-16 rounded-full mb-2 border-2 border-transparent group-hover:border-lime-500 transition-colors" loading="lazy" />
+                            <span className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-lime-600">Bramus</span>
+                        </a>
+                        <a href="https://rachelandrew.co.uk" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+                            <img src="/images/css-wrapped-2025/illustrations/rachel.jpg" alt="Rachel Andrew" className="w-16 h-16 rounded-full mb-2 border-2 border-transparent group-hover:border-lime-500 transition-colors" loading="lazy" />
+                            <span className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-lime-600">Rachel Andrew</span>
+                        </a>
+                        <a href="https://twitter.com/AmeliasBrain" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+                            <img src="/images/css-wrapped-2025/illustrations/barry.jpg" alt="Barry Pollard" className="w-16 h-16 rounded-full mb-2 border-2 border-transparent group-hover:border-lime-500 transition-colors" loading="lazy" />
+                            <span className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-lime-600">Barry Pollard</span>
+                        </a>
+                        <a href="https://erinlydev.com" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+                            <img src="/images/css-wrapped-2025/illustrations/erin.jpg" alt="Erin Ly" className="w-16 h-16 rounded-full mb-2 border-2 border-transparent group-hover:border-lime-500 transition-colors" loading="lazy" />
+                            <span className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-lime-600">Erin Ly</span>
+                        </a>
+                    </div>
+                </div>
+
                 <div className="max-w-4xl mx-auto text-center">
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                         Оригінальна стаття:{' '}
@@ -1143,6 +1634,16 @@ html {
                             ← Повернутися на головну
                         </Link>
                     </div>
+                </div>
+
+                {/* Clay City Decoration */}
+                <div className="absolute bottom-0 right-0 w-32 md:w-48 opacity-50 pointer-events-none">
+                    <img
+                        src="/images/css-wrapped-2025/illustrations/clay-city.png"
+                        alt=""
+                        className="w-full h-auto"
+                        loading="lazy"
+                    />
                 </div>
             </footer>
         </div>
