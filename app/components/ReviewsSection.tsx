@@ -25,9 +25,9 @@ interface ReviewsSectionProps {
 }
 
 export default function ReviewsSection({ reviews }: ReviewsSectionProps) {
-    // Рандомізуємо та беремо 3 відгуки
+    // Рандомізуємо та беремо 6 відгуків
     const shuffled = [...reviews].sort(() => Math.random() - 0.5);
-    const displayReviews = shuffled.slice(0, 3);
+    const displayReviews = shuffled.slice(0, 6);
 
     const formatDate = (dateStr: string) => {
         const date = new Date(dateStr);
@@ -58,7 +58,7 @@ export default function ReviewsSection({ reviews }: ReviewsSectionProps) {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                 {displayReviews.map((review) => (
                     <div
                         key={review.id}
