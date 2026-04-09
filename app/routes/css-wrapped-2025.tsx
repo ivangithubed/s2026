@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, ChevronDown, Book, Code2, Play } from 'lucide-react';
+import { ExternalLink, ChevronDown, Book, Code2, Play, Copy, Check } from 'lucide-react';
 import { Link } from 'react-router';
+import { Highlight, themes } from 'prism-react-renderer';
+import { useTheme } from '~/components/ThemeProvider';
 
 // Компонент для посилань на ресурси
 function ResourceLink({ href, children, icon: Icon }: { href: string; children: React.ReactNode; icon?: React.ComponentType<{ className?: string }> }) {
@@ -40,10 +43,62 @@ function CodePenEmbed({ penId, title }: { penId: string; title: string }) {
 
 // Компонент для блоку коду
 function CodeBlock({ children, language = 'css' }: { children: string; language?: string }) {
+    const [themeMode] = useTheme();
+    const [copied, setCopied] = useState(false);
+
+    const handleCopy = async () => {
+        try {
+            await navigator.clipboard.writeText(children);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch (err) {
+            console.error('Failed to copy code: ', err);
+        }
+    };
+
     return (
-        <pre className="my-4 p-4 bg-gray-100 dark:bg-gray-950 text-gray-800 dark:text-gray-100 rounded-lg overflow-x-auto text-sm border border-gray-200 dark:border-gray-700">
-            <code className={`language-${language}`}>{children}</code>
-        </pre>
+        <div className="relative my-4 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 group">
+            <button
+                onClick={handleCopy}
+                className={`absolute top-2 right-2 p-2 px-3 rounded-xl transition-all duration-300 flex items-center gap-2 text-xs font-bold border tracking-wide z-10
+                    ${copied
+                        ? 'bg-lime-500 text-white border-lime-500 shadow-lg shadow-lime-500/30'
+                        : 'bg-white dark:bg-slate-800 text-gray-500 dark:text-slate-400 border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-lime-500 hover:text-lime-600 shadow-sm opacity-0 group-hover:opacity-100'}`}
+                title="Копіювати код"
+            >
+                {copied ? (
+                    <>
+                        <Check className="w-4 h-4" />
+                        <span>Скопійовано</span>
+                    </>
+                ) : (
+                    <>
+                        <Copy className="w-4 h-4" />
+                        <span>Копіювати</span>
+                    </>
+                )}
+            </button>
+            <Highlight
+                theme={themeMode === 'dark' ? themes.vsDark : themes.vsLight}
+                code={children}
+                language={language}
+            >
+                {({ style, tokens, getLineProps, getTokenProps }) => (
+                    <pre
+                        className="p-4 overflow-x-auto text-sm font-mono leading-relaxed"
+                        style={{ ...style, margin: 0 }}
+                    >
+                        {tokens.map((line, i) => (
+                            <div key={i} {...getLineProps({ line })}>
+                                {line.map((token, key) => (
+                                    <span key={key} {...getTokenProps({ token })} />
+                                ))}
+                            </div>
+                        ))}
+                    </pre>
+                )}
+            </Highlight>
+        </div>
     );
 }
 
