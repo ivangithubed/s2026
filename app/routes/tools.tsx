@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
-import { Grid3X3, ArrowRight, Code2, ExternalLink } from 'lucide-react';
+import { Grid3X3, ArrowRight, Code2, ExternalLink, Sparkles } from 'lucide-react';
 
 interface Tool {
     id: string;
@@ -13,6 +13,14 @@ interface Tool {
 }
 
 const tools: Tool[] = [
+    {
+        id: 'css-wrapped-2025',
+        title: 'CSS Wrapped 2025 🇺🇦',
+        description: 'Переклад огляду 22 нових CSS та UI функцій 2025 року від Chrome DevRel команди.',
+        icon: <Sparkles className="w-8 h-8" />,
+        path: '/css-wrapped-2025',
+        color: 'purple',
+    },
     {
         id: 'grid-generator',
         title: 'CSS Grid Generator',
@@ -48,11 +56,15 @@ function ToolCard({ tool }: { tool: Tool }) {
 
     const iconBgColor = tool.color === 'blue'
         ? 'bg-blue-100 dark:bg-blue-900/30'
-        : 'bg-lime-100 dark:bg-lime-900/30';
+        : tool.color === 'purple'
+            ? 'bg-purple-100 dark:bg-purple-900/30'
+            : 'bg-lime-100 dark:bg-lime-900/30';
 
     const iconTextColor = tool.color === 'blue'
         ? 'text-blue-600 dark:text-blue-400'
-        : 'text-lime-600 dark:text-lime-400';
+        : tool.color === 'purple'
+            ? 'text-purple-600 dark:text-purple-400'
+            : 'text-lime-600 dark:text-lime-400';
 
     return (
         <CardWrapper
