@@ -30,6 +30,14 @@ const tools: Tool[] = [
         color: 'blue',
         isExternal: true,
     },
+    {
+        id: 'js-operators',
+        title: 'JS Operators Handbook',
+        description: 'Довідник JavaScript операторів. Приклади, синтаксис та пояснення українською мовою.',
+        icon: <Code2 className="w-8 h-8" />,
+        path: '/tools/operators',
+        color: 'lime',
+    },
 ];
 
 function ToolCard({ tool }: { tool: Tool }) {

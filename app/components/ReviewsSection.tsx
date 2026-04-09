@@ -25,7 +25,7 @@ interface ReviewsSectionProps {
 }
 
 export default function ReviewsSection({ reviews }: ReviewsSectionProps) {
-    // Рандомізуємо та беремо 6 відгуків
+
     const shuffled = [...reviews].sort(() => Math.random() - 0.5);
     const displayReviews = shuffled.slice(0, 6);
 

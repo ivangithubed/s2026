@@ -9,6 +9,7 @@ import type { Course } from "~/components/CourseCard";
 import { Faq } from '~/components/Faq';
 import type { FaqItem } from '~/components/Faq';
 import { HtmlDayPromo } from '~/components/HtmlDayPromo';
+import { JsOperatorsPromo } from '~/components/JsOperatorsPromo';
 import ReviewsSection from '~/components/ReviewsSection';
 import ParentReviewsSection from '~/components/ParentReviewsSection';
 
@@ -127,15 +128,18 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
         </motion.section>
       )}
 
-      {/* HTML Day Promo Section */}
-      <motion.div
+      {/* Tools Section */}
+      <motion.section
+        className="py-16"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Допоміжні інструменти</h2>
+        <JsOperatorsPromo />
         <HtmlDayPromo />
-      </motion.div>
+      </motion.section>
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}

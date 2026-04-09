@@ -2,8 +2,7 @@ import { Calendar, Search, Heart, Play, Trophy } from 'lucide-react';
 
 export const HtmlDayPromo = () => {
     return (
-        <section className="py-16">
-            <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Застосунок для моїх студентів</h2>
+        <section className="">
             <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 md:p-12 shadow-xl border border-slate-200 dark:border-slate-800">
                 <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
                     {/* SVG Icon */}

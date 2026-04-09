@@ -14,5 +14,6 @@ export default [
   route("parent-survey", "routes/parent-survey.tsx"),
   route("tools", "routes/tools.tsx"),
   route("tools/grid-generator", "routes/tools.grid-generator.tsx"),
+  route("tools/operators", "routes/tools.operators.tsx"),
   route("*", "routes/notfound.tsx"),
 ] satisfies RouteConfig;
